@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecoverAccountActivity">
+
+    <!-- Header aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#354A6B"
+            >
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Header aligned to top login -->
+    <RelativeLayout
+        android:layout_below="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <ImageView
+
+            android:layout_marginTop="80dp"
+
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_encuentralo_ya"
+            />
+
+    </RelativeLayout>
+
+    <!-- boody aligned to bottom -->
+    <RelativeLayout
+        android:layout_marginTop="260dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="16dp"
+                android:text="Ingrese la dirección de correo electrónico que utilizó para crear su cuenta y le enviaremos una nueva contraseña para que
+pueda actualizar su información."
+                />
+
+            <!--correo-->
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_button_border_gris"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_mail"
+                    android:layout_gravity="center"
+                    android:tint="#888585"
+                    android:layout_weight="1"
+
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CORREO ELECTRONICO"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+
+                        android:id="@+id/et_recover_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:layout_below="@+id/titulo"
+                        android:hint="ejemplo@encuentraloya.com" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- boton enviar correo -->
+            <Button
+                android:layout_marginTop="15dp"
+                android:id="@+id/btn_recover_account"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_border_test"
+                android:text="enviar correo" />
+
+            <ProgressBar
+                android:id="@+id/progress_recover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:visibility="gone" />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!-- Footer aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#354A6B"
+            >
+            <!-- acceder-->
+            <TextView
+                android:id="@+id/tv_recover_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:textColor="#DDE0E5"
+                android:text="Ya está registrado? Login" />
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

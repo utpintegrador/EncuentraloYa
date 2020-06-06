@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".view.Implement.LoginActivity">
+
+
+    <!-- Header aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#354A6B"
+            >
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Header aligned to top login -->
+    <RelativeLayout
+        android:layout_below="@+id/header1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <ImageView
+
+            android:layout_marginTop="80dp"
+
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_encuentralo_ya"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_marginTop="260dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical">
+
+
+            <!--correo-->
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_header_border"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_mail"
+                    android:layout_gravity="center"
+                    android:tint="#888585"
+                    android:layout_weight="1"
+
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/titulo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CORREO ELECTRONICO"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+
+                        android:id="@+id/et_login_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:layout_below="@+id/titulo"
+                        android:hint="ejemplo@encuentraloya.com" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--contraseña-->
+            <LinearLayout
+                android:layout_marginTop="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_footer_border"
+                >
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_candado"
+                    android:layout_gravity="center"
+                    android:tint="#888585"
+                    android:layout_weight="1"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_login_pwd_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CONTRASEÑA"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+
+                        android:id="@+id/et_login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:layout_below="@+id/tv_login_pwd_title"
+                        android:hint="********************" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--acceder-->
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_login_login"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_border_test"
+                android:text="Login" />
+
+            <!--recordar contrasenia -->
+            <CheckBox
+                android:id="@+id/chk_login_recordar"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layoutDirection="rtl"
+                android:text="Recordar contraseña"
+                android:textColor="#888585"
+                android:textStyle="bold"
+                android:textSize="12dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:visibility="gone" />
+
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!-- Footer aligned to bottom -->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#354A6B"
+            >
+            <!--recuperar cuenta-->
+            <TextView
+                android:id="@+id/tv_login_olvidar_pwd"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:textColor="#DDE0E5"
+                android:text="Olvidaste tu contraseña?" />
+            <!--crear cuenta-->
+            <TextView
+                android:id="@+id/tv_login_crear_cuenta"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:textColor="#DDE0E5"
+                android:text="Crear una nueva cuenta" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
