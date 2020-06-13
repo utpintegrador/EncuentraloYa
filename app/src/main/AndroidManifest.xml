@@ -13,9 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BuscarProductoActivity"></activity>
+        <activity android:name=".ListaTiendasCercanasActivity" />
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"></activity>
+            android:label="@string/title_activity_home" />
         <activity android:name=".RecoverAccountActivity" />
         <activity android:name=".view.Implement.RegisterUsuarioActivity" />
         <activity android:name=".view.Implement.LoginActivity">

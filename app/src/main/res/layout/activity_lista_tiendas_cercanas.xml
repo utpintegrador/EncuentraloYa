@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListaTiendasCercanasActivity">
+
+
+    <!-- HEADER MENU-->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+                <ImageButton
+                    android:layout_width="45dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/ic_izquierda"
+                    android:backgroundTint="#fff"
+            />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- BODY -->
+    <RelativeLayout
+        android:layout_marginTop="60dp"
+        android:id="@+id/boody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TIENDA SELECCIONADA"
+                android:textColor="#0089BA"
+                />
+
+            <!-- TIENDAR SELECCIONADA -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F2EEEE"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tienda 1"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TIENDAS DISPONIBLES"
+                android:textColor="#0089BA"
+                />
+            <!-- LISTA DE TIENDAS CERCANAS -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F2EEEE"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tienda 2"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F2EEEE"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tienda 2"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F2EEEE"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tienda 3"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
