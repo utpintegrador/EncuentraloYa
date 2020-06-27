@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuscarProductoActivity">
+    tools:context=".view.Implement.BuscarProductoActivity">
 
     <!-- Body -->
     <LinearLayout
@@ -209,72 +209,82 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center">
+        android:gravity="center" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:background="#0089BA"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
 
             <!--INICIO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_inicio"
-                android:drawableTint="#fff"
+                android:drawableTop="@drawable/ic_home"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Incio"
-                android:textAllCaps="false"
-                android:textColor="#fff" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
 
             <!--BUSCAR-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_buscar"
-                android:drawableTint="#80DEEA "
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#fff "
                 android:text="Buscar"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#fff"
+                android:layout_width="fill_parent" />
+
 
             <!--CARRITO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_carito"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Carrito"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
 
             <!--PERFIL-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_usuario"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Perfil"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
         </LinearLayout>
+
+
     </RelativeLayout>
+
+
 
 </RelativeLayout>

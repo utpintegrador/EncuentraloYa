@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".view.Implement.HomeActivity">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <!--  SECCION BUSCAR TIENDA -->
         <LinearLayout
+            android:paddingTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="30dp">
+            >
 
             <ImageView
+                android:paddingLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:paddingLeft="20dp"
-                android:tint="#0089BA"
                 app:srcCompat="@drawable/ic_ubicacion"
+                android:tint="#0089BA"
 
                 />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Hay 3 tiendas disponibles cerca de tu ubicación."
-                android:textAlignment="center"
-                android:textColor="#797D7F" />
-
-            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
+                android:text="Hay 3 tiendas disponibles cerca de tu ubicación."
+                android:textColor="#797D7F"
+                android:textAlignment="center"
+                android:gravity="center"
+                />
+
+            <ImageView
                 android:paddingRight="20dp"
-                android:tint="#0089BA"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
                 app:srcCompat="@drawable/ic_derecha"
+                android:tint="#0089BA"
 
                 />
 
@@ -52,231 +55,241 @@
 
         <!--  SECCION CATEGORIA -->
         <LinearLayout
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="CATEGORIA"
-                android:textColor="#0089BA" />
+                android:textColor="#0089BA"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" android:orientation="horizontal">
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_manzana"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Alimentos"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_lacteos"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Lácteos"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_conservas"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Conservas"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_bebida"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Bebidas"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
+
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" android:orientation="horizontal">
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_helado"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Helados"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_limpieza"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Limpieza"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <ImageView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_gravity="center"
                         android:background="@drawable/ic_cupcake"
                         android:textSize="20dp" />
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
                         android:text="Dulces"
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
 
                 <!--  ITEM -->
                 <LinearLayout
+                    android:layout_weight="0.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:padding="10dp">
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:paddingTop="5dp"
 
                         android:textColor="#797D7F"
-                        android:textSize="12dp" />
+                        android:textSize="12dp"
+                        />
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
@@ -285,96 +298,98 @@
 
         <!--  SECCION RECOMENTADO -->
         <LinearLayout
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:orientation="vertical">
 
             <TextView
+                android:paddingLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
                 android:text="RECOMENDADO"
-                android:textColor="#0089BA" />
+                android:textColor="#0089BA"
+                />
         </LinearLayout>
 
     </LinearLayout>
 
 
     <!-- FOOTER MENU-->
-    <RelativeLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center">
+     <RelativeLayout
+         android:id="@+id/footer"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:gravity="center" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="#0089BA"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="end"
+             android:gravity="center_vertical"
+             android:orientation="horizontal"
+             android:background="#0089BA"
+             >
 
-            <!--INICIO-->
+             <!--INICIO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_inicio"
-                android:drawableTint="#fff"
+                android:drawableTop="@drawable/ic_home"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#fff"
                 android:text="Incio"
-                android:textAllCaps="false"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:layout_width="fill_parent" />
 
 
             <!--BUSCAR-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_buscar"
-                android:drawableTint="#80DEEA "
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA "
                 android:text="Buscar"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
             <!--CARRITO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_carito"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Carrito"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
             <!--PERFIL-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_usuario"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Perfil"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
         </LinearLayout>

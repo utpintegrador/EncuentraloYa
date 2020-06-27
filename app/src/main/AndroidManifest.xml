@@ -13,13 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Ordenar"></activity>
-        <activity android:name=".BuscarProductoActivity" />
-        <activity android:name=".ListaTiendasCercanasActivity" />
+        <activity android:name=".OrdernarActivity"></activity>
+        <activity android:name=".PerfilActivity" />
+        <activity android:name=".view.Implement.BuscarProductoActivity" />
+        <activity android:name=".view.Implement.ListaTiendasCercanasActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.Implement.HomeActivity"
             android:label="@string/title_activity_home" />
-        <activity android:name=".RecoverAccountActivity" />
+        <activity android:name=".view.Implement.RecoverAccountActivity" />
         <activity android:name=".view.Implement.RegisterUsuarioActivity" />
         <activity android:name=".view.Implement.LoginActivity">
             <intent-filter>
