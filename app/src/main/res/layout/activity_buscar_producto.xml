@@ -1,9 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuscarProductoActivity">
+    tools:context=".view.Implement.BuscarProductoActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <!-- Body -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Search -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:background="@drawable/bg_border_radius">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:tint="#0089BA"
+                    app:srcCompat="@drawable/ic_buscar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Buscar"
+                    android:textAlignment="center"
+                    android:textColor="#797D7F" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Items -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--  ITEM -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_manzana"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Alimentos"
+                    android:textColor="#797D7F"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <!--  ITEM -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_lacteos"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Lácteos"
+                    android:textColor="#797D7F"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <!--  ITEM -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_conservas"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Conservas"
+                    android:textColor="#797D7F"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <!--  ITEM -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_bebida"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="Bebidas"
+                    android:textColor="#797D7F"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Ordenar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gris">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/ic_menu"></ImageButton>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="ORDENAR"
+                    android:textColor="#0089BA"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="30dp"
+                    android:src="@drawable/ic_filter">
+
+                </ImageButton>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- FOOTER MENU-->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+            <!--INICIO-->
+            <Button
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_home"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
+                android:text="Incio"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+            <!--BUSCAR-->
+            <Button
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_buscar"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#fff "
+                android:text="Buscar"
+                android:textColor="#fff"
+                android:layout_width="fill_parent" />
+
+
+            <!--CARRITO-->
+            <Button
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_carito"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
+                android:text="Carrito"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+            <!--PERFIL-->
+            <Button
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_usuario"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
+                android:text="Perfil"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
