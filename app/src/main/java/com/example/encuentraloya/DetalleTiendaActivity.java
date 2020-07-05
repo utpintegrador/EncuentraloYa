@@ -3,11 +3,11 @@ package com.example.encuentraloya;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class PerfilActivity extends AppCompatActivity {
+public class DetalleTiendaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil);
+        setContentView(R.layout.activity_detalle_tienda);
     }
 }

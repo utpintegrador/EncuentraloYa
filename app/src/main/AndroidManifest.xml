@@ -13,8 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrdernarActivity"></activity>
-        <activity android:name=".PerfilActivity" />
+        <activity android:name=".DetalleTiendaActivity"></activity>
+        <activity android:name=".ConfirmarPedidoActivity" />
+        <activity android:name=".view.Implement.CarritoActivity" />
+        <activity android:name=".view.Implement.DetalleProductoActivity" />
+        <activity android:name=".view.Implement.CambiarContraseniaActivity" />
+        <activity android:name=".view.Implement.OrdernarActivity" />
+        <activity android:name=".view.Implement.PerfilActivity" />
         <activity android:name=".view.Implement.BuscarProductoActivity" />
         <activity android:name=".view.Implement.ListaTiendasCercanasActivity" />
         <activity

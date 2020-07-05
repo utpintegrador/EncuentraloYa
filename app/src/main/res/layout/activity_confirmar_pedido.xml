@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmarPedidoActivity">
+
+    <!-- HEADER MENU-->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:background="@drawable/ic_izquierda"
+                android:backgroundTint="#fff"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_below="@+id/header"
+    android:layout_above="@+id/msj_confirmacion"
+    android:gravity="center_horizontal"
+    >
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Por favor ingrese su número de celúlar para que el vendedor se pueda contactar con usted."
+        />
+
+
+    <EditText
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="999 999 999"
+
+        android:paddingLeft="10dp"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_telefono"
+        android:drawableTint="#615f5f"
+
+        android:background="@drawable/bg_border_completo"
+
+        />
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/msj_confirmacion"
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_confirmar_perdido"
+        android:textAlignment="center"
+        android:text="Al confirmar su pedido el vendedor se pondrá en contacto con ustedes a través del número de celular que usted ha proporcionado, para la coordinación de la entrega de su pedido."
+        android:layout_marginBottom="15dp"
+        />
+
+
+    <Button
+        android:id="@+id/btn_confirmar_perdido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_border_test"
+        android:text="CONFIRMAR"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="25dp"
+        />
+
+</RelativeLayout>

@@ -4,232 +4,231 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PerfilActivity">
+    tools:context=".view.Implement.PerfilActivity">
 
-    <!-- OPCIONES -->
-    <LinearLayout
+
+
+
+    <RelativeLayout
+        android:id="@+id/cuerpo1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/cuerpo2"
         >
 
-        <!-- imagen perfil -->
         <LinearLayout
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:background="#F6F5F5"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             >
+
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
+
                 android:src="@drawable/img_perfil"
-                android:layout_gravity="center"
 
                 ></ImageView>
 
         </LinearLayout>
 
-        <!-- NOMBRES PERSONALES-->
-        <LinearLayout
-            android:layout_marginTop="60dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+    </RelativeLayout>
 
+    <!-- OPCIONES -->
+    <RelativeLayout
+        android:id="@+id/cuerpo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:id="@+id/menu_opciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="70dp"
             >
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icono_user"
-                android:layout_gravity="center"
-                android:tint="#888585"
-                android:layout_weight="1"
-
-                />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="1"
+            <!-- NOMBRE USUARIO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
                 >
-
                 <TextView
-                    android:id="@+id/titulo"
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="NOMBRE"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:drawableLeft="@drawable/ic_usuario"
+                    android:drawableTint="#888585"
+                    android:drawablePadding="7dp"
+                    android:text="Yens Solis"
+                    android:textColor="#797D7F"
+                    />
 
-                <TextView
+            </LinearLayout>
 
-                    android:id="@+id/et_create_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:background="@android:color/transparent"
-                    android:layout_below="@+id/titulo"
-                    android:hint="Yens Solis" />
-
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <!-- CORREO ELECTRONICO-->
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/icono_mail"
-                android:layout_gravity="center"
-                android:tint="#888585"
-                android:layout_weight="1"
-
-                />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:layout_weight="1"
+            <!-- CORREO ELECTRONICO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
                 >
-
                 <TextView
-                    android:id="@+id/titulo3"
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CORREO ELECTRONICO"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:drawableLeft="@drawable/icono_mail"
+                    android:drawableTint="#888585"
+                    android:drawablePadding="7dp"
+                    android:text="Yens.solis@gmail.com"
+                    android:textColor="#797D7F"
+                    />
 
+            </LinearLayout>
+            <View style="@style/Seperator"/>
+
+            <!-- OPCIONES PEDIDO-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
+                >
                 <TextView
-
-                    android:id="@+id/et_create_email"
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:background="@android:color/transparent"
-                    android:layout_below="@+id/titulo3"
-                    android:hint="ejemplo@encuentraloya.com" />
+                    android:drawableLeft="@drawable/ic_order"
+                    android:drawableTint="#0089BA"
+                    android:drawablePadding="7dp"
+                    android:text="Mis Pedidos"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <View style="@style/Seperator"/>
 
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <View style="@style/Seperator"/>
-
-        <!-- OPCIONES PEDIDO-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="#F6F5F5"
-            >
-            <TextView
-                android:layout_weight="0.9"
-                android:paddingLeft="20dp"
-                android:textAllCaps="false"
+            <!-- ESTADISTICA-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_order"
-                android:drawableTint="#0089BA"
-                android:drawablePadding="7dp"
-                android:text="Mis Pedidos"
-                android:textColor="#797D7F"
-                />
-            <ImageButton
-                android:layout_weight="0.1"
-                android:layout_marginRight="20dp"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ic_derecha"
-                android:backgroundTint="#0089BA"
-                />
-        </LinearLayout>
-        <View style="@style/Seperator"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_analisis"
+                    android:drawableTint="#0089BA"
+                    android:drawablePadding="7dp"
+                    android:text="Estadística"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <View style="@style/Seperator"/>
 
-        <!-- OPCIONES CAMBIAR CONTRASEÑA-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="#F6F5F5"
-            >
-            <TextView
-                android:layout_weight="0.9"
-                android:paddingLeft="20dp"
-                android:textAllCaps="false"
+            <!-- OPCIONES CAMBIAR CONTRASEÑA-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_seguridad_usuario"
-                android:drawableTint="#0089BA"
-                android:drawablePadding="7dp"
-                android:text="Cambiar Contraseña"
-                android:textColor="#797D7F"
-                />
-            <ImageButton
-                android:layout_weight="0.1"
-                android:layout_marginRight="20dp"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ic_derecha"
-                android:backgroundTint="#0089BA"
-                />
-        </LinearLayout>
-        <View style="@style/Seperator"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_seguridad_usuario"
+                    android:drawableTint="#0089BA"
+                    android:drawablePadding="7dp"
+                    android:text="Cambiar Contraseña"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <View style="@style/Seperator"/>
 
-        <!-- OPCIONES CERRAR SESION-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="#F6F5F5"
-            >
-            <TextView
-                android:layout_weight="0.9"
-                android:paddingLeft="20dp"
-                android:textAllCaps="false"
+            <!-- OPCIONES CERRAR SESION-->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_cerrar_sesion"
-                android:drawableTint="#0089BA"
-                android:drawablePadding="7dp"
-                android:text="Cerrar Sesión"
-                android:textColor="#797D7F"
-                />
-            <ImageButton
-                android:layout_weight="0.1"
-                android:layout_marginRight="20dp"
-                android:layout_width="45dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ic_derecha"
-                android:backgroundTint="#0089BA"
-                />
-        </LinearLayout>
-        <View style="@style/Seperator"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_cerrar_sesion"
+                    android:drawableTint="#0089BA"
+                    android:drawablePadding="7dp"
+                    android:text="Cerrar Sesión"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <View style="@style/Seperator"/>
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
     <!-- FOOTER MENU-->
     <RelativeLayout
@@ -312,4 +311,6 @@
 
 
     </RelativeLayout>
+
+
 </RelativeLayout>
