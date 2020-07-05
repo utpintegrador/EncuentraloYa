@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Implement.CambiarContraseniaActivity">
+
+    <!-- HEADER MENU-->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:background="@drawable/ic_izquierda"
+                android:backgroundTint="#fff"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- ICONO -->
+    <RelativeLayout
+        android:id="@+id/body_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            >
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:id="@+id/imageView9"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:tint="#888585"
+                app:srcCompat="@drawable/ic_seguridad"
+
+                ></ImageView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- TITULOS -->
+    <RelativeLayout
+        android:id="@+id/body_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/body_one"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="10dp"
+            android:orientation="vertical"
+             >
+
+            <TextView
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Restablecer Contraseña"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                />
+            <TextView
+                android:textAlignment="center"
+                android:id="@+id/titulo6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingrese a continuación su nueva contraseña,solo estamos siendo más seguros"
+                android:textSize="14sp"
+                android:layout_marginBottom="10dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--BODY - CONTROLES-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:layout_below="@+id/body_two"
+        android:layout_above="@+id/footer"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical">
+
+                <!--Contrasenia-->
+                <LinearLayout
+                    android:layout_marginTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_header_border"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/icono_candado"
+                        android:layout_gravity="center"
+                        android:tint="#888585"
+                        android:layout_weight="1"
+
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        >
+
+                        <TextView
+                            android:id="@+id/titulo4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nueva Contraseña"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+
+                            android:id="@+id/et_change_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:background="@android:color/transparent"
+                            android:layout_below="@+id/titulo4"
+                            android:hint="****************" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <!--Confirmar contrasenia-->
+                <LinearLayout
+                    android:layout_marginTop="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_footer_border"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/icono_candado"
+                        android:layout_gravity="center"
+                        android:tint="#888585"
+                        android:layout_weight="1"
+
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        >
+
+                        <TextView
+                            android:id="@+id/titulo5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Confirmar Contraseña"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                        <EditText
+
+                            android:id="@+id/et_change_password_confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:background="@android:color/transparent"
+                            android:layout_below="@+id/titulo5"
+                            android:hint="****************" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_change_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:visibility="gone" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <!-- BOTON GUARDAR -->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="40dp"
+            >
+
+            <!--boton registrar-->
+            <Button
+
+                android:id="@+id/btn_change_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_button_border_test"
+                android:text="GUARDAR" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

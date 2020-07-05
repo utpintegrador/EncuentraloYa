@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleTiendaActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/body_1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:background="#0089BA"
+        >
+
+        <ImageButton
+            android:layout_marginLeft="5dp"
+            android:layout_width="45dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_izquierda"
+            android:backgroundTint="#fff"
+            />
+
+
+        <ImageView
+
+            android:id="@+id/imgView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_tienda"
+            android:layout_marginLeft="70dp"
+            android:layout_marginVertical="40dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TIENDA 2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="35dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="20dp"
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/body_1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="01 May, 2020"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:textSize="17dp"
+            android:textAlignment="inherit"
+            android:gravity="center_vertical"
+            />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

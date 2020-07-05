@@ -6,19 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".view.Implement.BuscarProductoActivity">
 
-    <!-- Body -->
-    <LinearLayout
+    <!-- SEARCH -->
+    <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
 
-        <!-- Search -->
+          >
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="30dp">
+            android:paddingTop="15dp"
+
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,6 +52,18 @@
             </LinearLayout>
 
         </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- CATEGORIAS -->
+    <RelativeLayout
+        android:id="@+id/body_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        >
+
 
         <!-- Items -->
         <LinearLayout
@@ -161,21 +177,40 @@
 
         </LinearLayout>
 
-        <!-- Ordenar -->
-        <LinearLayout
+
+    </RelativeLayout>
+
+    <!-- FILTROS -->
+    <RelativeLayout
+        android:id="@+id/body_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/body_one"
+        android:background="#E5E7E9"
+        >
+
+        <!-- ordernar -->
+        <RelativeLayout
+            android:id="@+id/mnu_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_gris">
+            android:layout_alignParentLeft="true"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginLeft="30dp"
-                    android:src="@drawable/ic_menu"></ImageButton>
+                    app:srcCompat="@drawable/ic_ordenar_lista_2"
+                    android:tint="#0089BA"
+                    android:backgroundTint="#E5E7E9"
+
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -184,24 +219,49 @@
                     android:text="ORDENAR"
                     android:textColor="#0089BA"
                     android:textSize="12dp" />
+
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"
-                    android:src="@drawable/ic_filter">
+        </RelativeLayout>
 
-                </ImageButton>
-            </RelativeLayout>
-        </LinearLayout>
+        <!-- filtrar -->
+        <RelativeLayout
+            android:id="@+id/mnu_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            >
 
-    </LinearLayout>
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                app:srcCompat="@drawable/ic_filtro"
+                android:tint="#0089BA"
+                android:backgroundTint="#E5E7E9"
+                />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <!-- ITEMS -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/body_two"
+        android:layout_above="@+id/footer"
+        >
+
+
+    </RelativeLayout>
+
+
 
     <!-- FOOTER MENU-->
     <RelativeLayout
@@ -284,7 +344,5 @@
 
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>
