@@ -258,6 +258,23 @@
         android:layout_above="@+id/footer"
         >
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:overScrollMode="never"
+                ></android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

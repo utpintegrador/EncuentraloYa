@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_border_total_blanco"
+            >
+
+
+
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/imageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_order"
+                android:layout_gravity="center"
+                android:tint="#F4F6F7 "
+                android:background="#7B7D7D"
+                />
+
+            <ImageView
+                android:padding="7dp"
+                android:id="@+id/imageTienda"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_market"
+                android:tint="#888585"
+                android:layout_toRightOf="@id/imageView"
+                />
+            <ImageView
+                android:padding="7dp"
+                android:id="@+id/imageViewAlerta"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_alerta"
+                android:tint="#F4D03F "
+                android:layout_toRightOf="@id/imageView"
+                android:layout_below="@+id/imageTienda"
+                />
+            <ImageView
+                android:padding="7dp"
+                android:id="@+id/imageViewCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_verificado"
+                android:tint="#2ECC71 "
+                android:layout_toRightOf="@id/imageView"
+                android:layout_below="@+id/imageTienda"
+                />
+
+                <TextView
+                    android:id="@+id/tvTienda"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textStyle="bold"
+                    android:text="Tienda Pepido"
+                    android:layout_toRightOf="@id/imageTienda"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tvEstadoPedido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="12sp"
+                    android:text="Pendiente"
+                    android:layout_toRightOf="@id/imageTienda"
+                    android:layout_below="@+id/tvTienda"
+                    android:gravity="center_vertical"
+                    />
+
+                <TextView
+                    android:id="@+id/tvfecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:textColor="#E74C3C"
+                    android:text="12-05-2019"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tvTienda"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
