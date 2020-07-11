@@ -36,7 +36,6 @@ public class LoginInformationResponse {
     @Expose
     private String userName;
 
-
     public LoginInformationResponse() {
     }
 

@@ -1,4 +1,5 @@
 package com.example.encuentraloya.model.Implement;
+
 import com.example.encuentraloya.Servicios.APIService;
 import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.entidad.CreateUserRequest;
@@ -8,7 +9,6 @@ import com.example.encuentraloya.model.Interfaces.OnRegisterUsuarioFinishedListe
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 
 public class RegisterUsuarioInteractor {
 
@@ -48,4 +48,5 @@ public class RegisterUsuarioInteractor {
             }
         });
     }
+
 }

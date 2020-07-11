@@ -5,12 +5,9 @@ import com.example.encuentraloya.model.Interfaces.OnLoginFinishedListener;
 import com.example.encuentraloya.view.Interfaces.ILoginView;
 
 
-
-
 public class LoginPresenter implements OnLoginFinishedListener {
     private ILoginView loginView;
     private LoginInteractor loginInteractor;
-
 
     public LoginPresenter(ILoginView loginView, LoginInteractor loginInteractor) {
         this.loginView = loginView;
@@ -22,17 +19,15 @@ public class LoginPresenter implements OnLoginFinishedListener {
             loginView.showProgress();
         }
 
-        loginInteractor.login(username, password,recordarCuenta, this);
+        loginInteractor.login(username, password, recordarCuenta, this);
     }
 
-
-    public void verificarSiCuentaRecordar(){
+    public void verificarSiCuentaRecordar() {
         if (loginView != null) {
             loginView.showProgress();
         }
         loginInteractor.verificaCuentaSiRecordar(this);
     }
-
 
     public void onDestroy() {
         loginView = null;

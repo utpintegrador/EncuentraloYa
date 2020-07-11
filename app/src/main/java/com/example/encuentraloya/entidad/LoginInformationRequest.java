@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginInformationRequest {
 
-    @SerializedName("Usuario")
+    @SerializedName("CorreoElectronico")
     @Expose
-    private String usuario;
+    private String email;
 
     @SerializedName("Contrasenia")
     @Expose
@@ -18,12 +18,12 @@ public class LoginInformationRequest {
     public LoginInformationRequest() {
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getContrasenia() {

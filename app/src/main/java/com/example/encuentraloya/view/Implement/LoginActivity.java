@@ -1,5 +1,6 @@
 package com.example.encuentraloya.view.Implement;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -95,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
     public void navigateToHome() {
         Toast toast = Toast.makeText(this, "Successful",Toast.LENGTH_SHORT);
         toast.show();
-       // startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
         //finish();
     }
 
