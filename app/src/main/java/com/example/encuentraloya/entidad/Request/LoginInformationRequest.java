@@ -1,4 +1,4 @@
-package com.example.encuentraloya.entidad;
+package com.example.encuentraloya.entidad.Request;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -8,22 +8,17 @@ public class LoginInformationRequest {
 
     @SerializedName("CorreoElectronico")
     @Expose
-    private String email;
-
+    private String correoElectronico;
     @SerializedName("Contrasenia")
     @Expose
     private String contrasenia;
 
-
-    public LoginInformationRequest() {
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public String getContrasenia() {
@@ -33,4 +28,5 @@ public class LoginInformationRequest {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
+
 }

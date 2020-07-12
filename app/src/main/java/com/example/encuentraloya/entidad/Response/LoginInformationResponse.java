@@ -1,4 +1,4 @@
-package com.example.encuentraloya.entidad;
+package com.example.encuentraloya.entidad.Response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -35,6 +35,7 @@ public class LoginInformationResponse {
     @SerializedName("UserName")
     @Expose
     private String userName;
+
 
     public LoginInformationResponse() {
     }

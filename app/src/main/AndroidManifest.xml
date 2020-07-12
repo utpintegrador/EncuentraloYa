@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetallePedidoActivity"></activity>
-        <activity android:name=".MisPedidoActivity" />
-        <activity android:name=".DetalleTiendaActivity" />
-        <activity android:name=".ConfirmarPedidoActivity" />
+        <activity android:name=".view.Implement.DetallePedidoActivity"></activity>
+        <activity android:name=".view.Implement.MisPedidoActivity" />
+        <activity android:name=".view.Implement.DetalleTiendaActivity" />
+        <activity android:name=".view.Implement.ConfirmarPedidoActivity" />
         <activity android:name=".view.Implement.CarritoActivity" />
         <activity android:name=".view.Implement.DetalleProductoActivity" />
         <activity android:name=".view.Implement.CambiarContraseniaActivity" />
@@ -26,15 +26,15 @@
         <activity android:name=".view.Implement.ListaTiendasCercanasActivity" />
         <activity
             android:name=".view.Implement.HomeActivity"
-            android:label="@string/title_activity_home" />
+            android:label="@string/title_activity_home" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.Implement.RecoverAccountActivity" />
         <activity android:name=".view.Implement.RegisterUsuarioActivity" />
         <activity android:name=".view.Implement.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

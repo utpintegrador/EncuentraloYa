@@ -45,6 +45,8 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
 
         //set listener
         btnLogin.setOnClickListener(this);
+        link_recuperar_cuenta.setOnClickListener(this);
+        link_crear_cuenta.setOnClickListener(this);
 
         //init
         presenter = new LoginPresenter(this, new LoginInteractor());
@@ -53,14 +55,19 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
         presenter.verificarSiCuentaRecordar();
     }
 
-
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_login_login:
                 presenter.validateCredentials(editUser.getText().toString(), editPass.getText().toString(),recordar_cuenta.isChecked() );
+                break;
+            case R.id.tv_login_olvidar_pwd:
+                startActivity(new Intent(LoginActivity.this,RecoverAccountActivity.class));
+                finish();
+                break;
+            case R.id.tv_login_crear_cuenta:
+                startActivity(new Intent(LoginActivity.this,RegisterUsuarioActivity.class));
+                finish();
                 break;
         }
     }
@@ -84,20 +91,18 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
 
     @Override
     public void setUsernameError() {
-        editPass .setError(getString(R.string.username_error));
+        editPass.setError(getString(R.string.username_error));
     }
 
     @Override
     public void setPasswordError() {
-        editPass .setError(getString(R.string.password_error));
+        editPass.setError(getString(R.string.password_error));
     }
 
     @Override
     public void navigateToHome() {
-        Toast toast = Toast.makeText(this, "Successful",Toast.LENGTH_SHORT);
-        toast.show();
-        startActivity(new Intent(this, HomeActivity.class));
-        //finish();
+        startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        finish();
     }
 
     @Override

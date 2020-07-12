@@ -1,7 +1,9 @@
-package com.example.encuentraloya;
+package com.example.encuentraloya.view.Implement;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.encuentraloya.R;
 
 public class DetallePedidoActivity extends AppCompatActivity {
 

@@ -4,11 +4,11 @@ public interface IRegisterUsuarioView {
     void showProgress();
     void hideProgress();
 
-    void setCorreoElectronicoError();
-    void setUsernameError();
-    void setNombreeError();
-    void setApellidoError();
-    void setContraseniasError();
+    void setCorreoElectronicoError(String message);
+    void setNombreeError(String message);
+    void setApellidoError(String message);
+    void setContraseniaError(String message);
+    void setConfirmarContraseniaError(String message);
 
     void navigateToHome();
 
@@ -18,3 +18,4 @@ public interface IRegisterUsuarioView {
 
 
 }
+

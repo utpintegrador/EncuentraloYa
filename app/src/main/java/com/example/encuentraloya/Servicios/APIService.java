@@ -1,10 +1,14 @@
 package com.example.encuentraloya.Servicios;
 
 
-import com.example.encuentraloya.entidad.CreateUserRequest;
-import com.example.encuentraloya.entidad.CreateUserResponse;
-import com.example.encuentraloya.entidad.LoginInformationRequest;
-import com.example.encuentraloya.entidad.LoginInformationResponse;
+import com.example.encuentraloya.entidad.Request.CategoriaRequest;
+import com.example.encuentraloya.entidad.Request.CreateUserRequest;
+import com.example.encuentraloya.entidad.Request.RecuperarCuentaRequest;
+import com.example.encuentraloya.entidad.Response.CategoriaResponse;
+import com.example.encuentraloya.entidad.Response.CreateUserResponse;
+import com.example.encuentraloya.entidad.Request.LoginInformationRequest;
+import com.example.encuentraloya.entidad.Response.LoginInformationResponse;
+import com.example.encuentraloya.entidad.Response.RecuperarCuentaResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -18,5 +22,12 @@ public interface APIService {
 
     @POST("Usuario")
     Call<CreateUserResponse> registrar(@Body CreateUserRequest createUser);
+
+    @POST("RecuperacionContrasenia")
+    Call<RecuperarCuentaResponse> recuperarContrasenia(@Body RecuperarCuentaRequest entity);
+
+    @POST("Categoria/Obtener")
+   Call<CategoriaResponse> obtenerCategorias(@Body CategoriaRequest entity);
+
 
 }

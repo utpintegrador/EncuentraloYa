@@ -22,34 +22,47 @@
             android:orientation="horizontal"
             >
 
-            <ImageView
-                android:paddingLeft="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                app:srcCompat="@drawable/ic_ubicacion"
-                android:tint="#0089BA"
+            <RelativeLayout
+                android:id="@+id/rl_tiendas_cercanas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                />
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:paddingLeft="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    app:srcCompat="@drawable/ic_ubicacion"
+                    android:tint="#0089BA"
+                    android:layout_alignParentLeft="true"
+                    />
 
-            <TextView
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:text="Hay 3 tiendas disponibles cerca de tu ubicación."
-                android:textColor="#797D7F"
-                android:textAlignment="center"
-                android:gravity="center"
-                />
+                <TextView
 
-            <ImageView
-                android:paddingRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                app:srcCompat="@drawable/ic_derecha"
-                android:tint="#0089BA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:text="Hay 3 tiendas disponibles cerca de tu ubicación."
+                    android:textColor="#797D7F"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_toRightOf="@id/img_location"
+                    android:layout_toLeftOf="@+id/img_ver"
+                    />
 
-                />
+                <ImageView
+                    android:id="@+id/img_ver"
+                    android:paddingRight="2dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    app:srcCompat="@drawable/ic_derecha"
+                    android:tint="#0089BA"
+                    android:layout_alignParentRight="true"
+
+                    />
+
+            </RelativeLayout>
+
+
 
         </LinearLayout>
 
@@ -62,237 +75,20 @@
 
             <TextView
                 android:paddingLeft="20dp"
-                android:paddingBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CATEGORIA"
                 android:textColor="#0089BA"
                 />
 
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvCategoria"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal">
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_manzana"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Alimentos"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_lacteos"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Lácteos"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_conservas"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Conservas"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_bebida"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Bebidas"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal">
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_helado"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Helados"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_limpieza"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Limpieza"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/ic_cupcake"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="Dulces"
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-                <!--  ITEM -->
-                <LinearLayout
-                    android:layout_weight="0.5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_gravity="center"
-                        android:layout_width="40dp"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-
-                        android:textColor="#797D7F"
-                        android:textSize="12dp"
-                        />
-
-                </LinearLayout>
-
-
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="20dp"
+                android:overScrollMode="never"
+                ></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
@@ -310,6 +106,9 @@
                 android:text="RECOMENDADO"
                 android:textColor="#0089BA"
                 />
+
+
+
         </LinearLayout>
 
     </LinearLayout>
@@ -334,6 +133,7 @@
 
              <!--INICIO-->
             <Button
+                android:id="@+id/btn_inicio"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -349,6 +149,7 @@
 
             <!--BUSCAR-->
             <Button
+                android:id="@+id/btn_buscar"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -364,6 +165,7 @@
 
             <!--CARRITO-->
             <Button
+                android:id="@+id/btn_carrito"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -379,6 +181,7 @@
 
             <!--PERFIL-->
             <Button
+                android:id="@+id/btn_perfil"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
