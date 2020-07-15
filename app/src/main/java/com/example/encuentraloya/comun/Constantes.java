@@ -14,5 +14,35 @@ public class Constantes {
     public static final String PREF_USERNAME = "PREF_USERNAME";
     //endregion
 
+    //region negocio
+    public static final String PREF_IDNEGOCIO ="PREF_IDNEGOCIO";
+    public static final String PREF_NOMBRENEGOCIO ="PREF_NOMBRENEGOCIO";
+    public static final String PREF_ID_UBICACION_NEGOCIO ="PREF_ID_UBICACION_NEGOCIO";
+    public static final String PREF_TITULO_NEGOCIO ="PREF_TITULO_NEGOCIO";
+    public static final String PREF_DESCRIPCION_NEGOCIO ="PREF_DESCRIPCION_NEGOCIO";
+    public static final String PREF_LATITUD_NEGOCIO ="PREF_LATITUD_NEGOCIO";
+    public static final String PREF_LONGITUD_NEGOCIO ="PREF_LONGITUD_NEGOCIO";
+    //endregion negocio
+
+    //poins
+    public static double LATITUD_VALUE;
+    public static double LONGITUD_VALUE;
+    public static double RETURN_MAP_LATITUD;
+    public static double RETURN_MAP_LONGITUD;
+
+
+    //
+
+    //LOCATION
+    public static final int SUCCESS_RESULT = 0;
+    public static final int FAILURE_RESULT = 1;
+    public static final String PACKAGE_NAME =
+            "com.google.android.gms.location.sample.locationaddress";
+    public static final String RECEIVER = PACKAGE_NAME + ".RECEIVER";
+    public static final String RESULT_DATA_KEY = PACKAGE_NAME +
+            ".RESULT_DATA_KEY";
+    public static final String LOCATION_DATA_EXTRA = PACKAGE_NAME +
+            ".LOCATION_DATA_EXTRA";
+
 
 }

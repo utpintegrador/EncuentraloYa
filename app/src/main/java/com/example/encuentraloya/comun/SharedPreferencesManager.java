@@ -32,6 +32,7 @@ public class SharedPreferencesManager {
         editor.commit();
     }
 
+
     public static String getStringValue(String etiqueta){
         return getSharedPreferences().getString(etiqueta, null);
     }

@@ -25,12 +25,19 @@ public class HomePresenter implements IOnHomeFinishedListener {
 
     @Override
     public void onCategoriaSucces(List<CategoriaDto> listaCategoria) {
+        if (view != null) {
+            view.hideProgress();
+            view.showCategoria(listaCategoria);
+            view.showRecyclerView();
+        }
 
-        view.showCategoria(listaCategoria);
     }
 
     @Override
     public void onMessage(String message) {
-
+        if (view != null) {
+            view.showMessage(message);
+            view.hideProgress();
+        }
     }
 }

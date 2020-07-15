@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.Implement.ListaTiendasCercanasActivity">
 
-
     <!-- HEADER MENU-->
     <RelativeLayout
         android:id="@+id/header"
@@ -123,12 +122,13 @@
                 android:gravity="center_vertical"
                 />
             <TextView
-                android:id="@+id/tvEstadoPedido"
+                android:id="@+id/tvDistancia"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:textSize="12sp"
                 android:text="A 2KM"
                 android:layout_toRightOf="@id/imageTienda"
+                android:layout_toLeftOf="@+id/imageVer"
                 android:layout_below="@+id/tvTienda"
                 android:gravity="center_vertical"
                 />

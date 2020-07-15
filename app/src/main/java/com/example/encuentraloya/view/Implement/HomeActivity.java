@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Button navegation_perfil;
 
     RecyclerView rvCategoria;
+    ProgressBar progressBar;
 
     RelativeLayout navegation_tiendas_cercanas;
 
@@ -48,7 +50,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         navegation_carrito=(Button) this.findViewById(R.id.btn_carrito);
         navegation_perfil =(Button) this.findViewById(R.id.btn_perfil);
         navegation_tiendas_cercanas=(RelativeLayout)  this.findViewById(R.id.rl_tiendas_cercanas);
-
+        progressBar =(ProgressBar)  this.findViewById(R.id.progress_home_categoria);
 
         //LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
 
@@ -101,12 +103,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void showProgress() {
+        progressBar.setVisibility(View.VISIBLE);
 
     }
 
     @Override
-    public void hideProgress() {
+    public void showRecyclerView() {
+        rvCategoria.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void hideProgress() {
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -119,4 +127,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void showMessage(String message) {
 
     }
+
+
+
 }

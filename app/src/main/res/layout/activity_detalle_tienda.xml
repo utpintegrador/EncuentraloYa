@@ -83,7 +83,6 @@
         >
 
 
-
         <ImageView
             android:padding="4dp"
             android:id="@+id/imageView"
@@ -93,9 +92,6 @@
             android:layout_gravity="center"
             android:tint="#7B7D7D"
             />
-
-
-
 
         <TextView
             android:layout_marginLeft="10dp"

@@ -63,6 +63,7 @@
                 android:background="#F6F5F5"
                 >
                 <TextView
+                    android:id="@+id/et_NombreCompleto"
                     android:layout_weight="0.9"
                     android:paddingLeft="20dp"
                     android:textAllCaps="false"
@@ -86,6 +87,7 @@
                 android:background="#F6F5F5"
                 >
                 <TextView
+                    android:id="@+id/et_CorreoElectronico"
                     android:layout_weight="0.9"
                     android:paddingLeft="20dp"
                     android:textAllCaps="false"
@@ -101,8 +103,41 @@
             </LinearLayout>
             <View style="@style/Seperator"/>
 
+            <!-- MI NEGOCIO-->
+            <LinearLayout
+                android:id="@+id/Ly_mi_negocio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="#F6F5F5"
+                >
+                <TextView
+                    android:layout_weight="0.9"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_market"
+                    android:drawableTint="#0089BA"
+                    android:drawablePadding="7dp"
+                    android:text="Mis Negocio"
+                    android:textColor="#797D7F"
+                    />
+                <ImageButton
+                    android:layout_weight="0.1"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="45dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_derecha"
+                    android:backgroundTint="#0089BA"
+                    />
+            </LinearLayout>
+            <View style="@style/Seperator"/>
+
             <!-- OPCIONES PEDIDO-->
             <LinearLayout
+                android:id="@+id/Ly_mi_pedido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -134,6 +169,7 @@
 
             <!-- ESTADISTICA-->
             <LinearLayout
+                android:id="@+id/Ly_mi_estadistica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -165,6 +201,7 @@
 
             <!-- OPCIONES CAMBIAR CONTRASEÑA-->
             <LinearLayout
+                android:id="@+id/Ly_mi_actualizar_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -196,6 +233,7 @@
 
             <!-- OPCIONES CERRAR SESION-->
             <LinearLayout
+                android:id="@+id/Ly_cerrar_sesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -249,6 +287,7 @@
 
             <!--INICIO-->
             <Button
+                android:id="@+id/btn_inicio"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -256,14 +295,15 @@
                 android:drawableTop="@drawable/ic_home"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:drawableTint="#80DEEA"
+                android:drawableTint="#fff"
                 android:text="Incio"
-                android:textColor="#80DEEA"
+                android:textColor="#fff"
                 android:layout_width="fill_parent" />
 
 
             <!--BUSCAR-->
             <Button
+                android:id="@+id/btn_buscar"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -279,6 +319,7 @@
 
             <!--CARRITO-->
             <Button
+                android:id="@+id/btn_carrito"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -294,6 +335,7 @@
 
             <!--PERFIL-->
             <Button
+                android:id="@+id/btn_perfil"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -301,9 +343,9 @@
                 android:drawableTop="@drawable/ic_usuario"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:drawableTint="#fff"
+                android:drawableTint="#80DEEA"
                 android:text="Perfil"
-                android:textColor="#fff"
+                android:textColor="#80DEEA"
                 android:layout_width="fill_parent" />
 
 

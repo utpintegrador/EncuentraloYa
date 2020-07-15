@@ -8,6 +8,7 @@ public interface IHomeView {
 
     void showProgress();
     void hideProgress();
+    void showRecyclerView();
 
     void showCategoria(List<CategoriaDto> listaCategoria);
     void showMessage(String message);

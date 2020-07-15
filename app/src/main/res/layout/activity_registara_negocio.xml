@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistaraNegocioActivity">
+
+    <com.mapbox.mapboxsdk.views.MapView
+        android:id="@+id/mapview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:access_token="@string/mapbox_api_token" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <EditText
+            android:id="@+id/searchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/bg_border_radius"
+            android:elevation="4dp"
+            android:fontFamily="sans-serif-light"
+            android:hint="Buscar ubicación"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapWords|textNoSuggestions"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="8dp"
+            android:paddingTop="12dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btn_agregarUbicacion"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agregar Ubicación"
+                android:layout_weight="0.5"
+                android:textColor="#FFFFFF"
+                android:background="#0089BA"
+                android:layout_margin="3dp"
+                />
+
+            <Button
+                android:id="@+id/btn_cancelar"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar"
+                android:layout_weight="0.5"
+                android:textColor="#FFFFFF"
+                android:background="#0089BA"
+                android:layout_margin="3dp"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+    <!--
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="48dp"
+        android:layout_marginRight="16dp"
+        fab:fab_addButtonColorNormal="@color/yellow"
+        fab:fab_addButtonColorPressed="@color/yellow_300"
+        fab:fab_addButtonPlusIconColor="@color/white"
+        fab:fab_addButtonSize="normal"
+        fab:fab_labelStyle="@style/menu_labels_style"
+        fab:fab_labelsPosition="left">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="selectStyle"
+            fab:fab_addButtonSize="mini"
+            fab:fab_colorNormal="@color/yellow"
+            fab:fab_colorPressed="@color/yellow_300"
+            fab:fab_icon="@drawable/ic_filter_list"
+            fab:fab_title="@string/map_style" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="enterLocation"
+            fab:fab_addButtonSize="mini"
+            fab:fab_colorNormal="@color/yellow"
+            fab:fab_colorPressed="@color/yellow_300"
+            fab:fab_icon="@drawable/ic_mode_edit"
+            fab:fab_title="@string/location" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    -->
+
+
+</FrameLayout>

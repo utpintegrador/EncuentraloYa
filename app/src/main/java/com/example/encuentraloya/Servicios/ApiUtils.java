@@ -8,7 +8,14 @@ public class ApiUtils {
     public static final String BASE_URL = "https://api-find.control-zeta.net/api/";
 
     public static APIService getAPIService() {
-
         return RetrofitClient.getClient(BASE_URL).create(APIService.class);
     }
+    public static IUbicacionNegocioService getAPIServiceaUbicacionNegocio() {
+        return RetrofitClient.getClient(BASE_URL).create(IUbicacionNegocioService.class);
+    }
+
+    public static  INegocioService getAPIServiceNegocio(){
+        return RetrofitClient.getClient(BASE_URL).create(INegocioService.class);
+    }
+
 }

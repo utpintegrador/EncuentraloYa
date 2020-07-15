@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
         presenter = new LoginPresenter(this, new LoginInteractor());
 
         //inicializa evento recordar cuenta
-        presenter.verificarSiCuentaRecordar();
+        //presenter.verificarSiCuentaRecordar();
     }
 
     @Override
