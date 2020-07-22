@@ -3,12 +3,15 @@ package com.example.encuentraloya.entidad;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class NegocioDto {
+
     @SerializedName("IdNegocio")
     @Expose
     private Integer idNegocio;
+
     @SerializedName("DocumentoIdentificacion")
     @Expose
     private String documentoIdentificacion;
+
     @SerializedName("Nombre")
     @Expose
     private String nombre;

@@ -65,7 +65,7 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
                         createPassConfirm.getText().toString());
                 break;
             case R.id.tv_create_login:
-                startActivity(new Intent(RegisterUsuarioActivity.this,LoginActivity.class));
+                startActivity(new Intent(RegisterUsuarioActivity.this, LoginActivity.class));
                 finish();
                 break;
         }
@@ -109,7 +109,7 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(RegisterUsuarioActivity.this,HomeActivity.class));
+        startActivity(new Intent(RegisterUsuarioActivity.this, HomeActivity.class));
         finish();
     }
 

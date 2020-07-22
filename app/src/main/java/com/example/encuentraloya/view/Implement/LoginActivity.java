@@ -18,7 +18,7 @@ import com.example.encuentraloya.view.Interfaces.ILoginView;
 
 import org.w3c.dom.Text;
 
-public class LoginActivity extends AppCompatActivity implements ILoginView, View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements ILoginView, View.OnClickListener {
     private LoginPresenter presenter;
 
     private EditText editUser;
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
         btnLogin = (Button) this.findViewById(R.id.btn_login_login);
         progressBar = (ProgressBar) this.findViewById(R.id.progress_login);
         link_recuperar_cuenta = (TextView) this.findViewById(R.id.tv_login_olvidar_pwd);
-        link_crear_cuenta =(TextView) this.findViewById(R.id.tv_login_crear_cuenta);
+        link_crear_cuenta = (TextView) this.findViewById(R.id.tv_login_crear_cuenta);
         recordar_cuenta = (CheckBox) this.findViewById(R.id.chk_login_recordar);
 
         //set listener
@@ -57,16 +57,16 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_login_login:
-                presenter.validateCredentials(editUser.getText().toString(), editPass.getText().toString(),recordar_cuenta.isChecked() );
+                presenter.validateCredentials(editUser.getText().toString(), editPass.getText().toString(), recordar_cuenta.isChecked());
                 break;
             case R.id.tv_login_olvidar_pwd:
-                startActivity(new Intent(LoginActivity.this,RecoverAccountActivity.class));
+                startActivity(new Intent(LoginActivity.this, RecoverAccountActivity.class));
                 finish();
                 break;
             case R.id.tv_login_crear_cuenta:
-                startActivity(new Intent(LoginActivity.this,RegisterUsuarioActivity.class));
+                startActivity(new Intent(LoginActivity.this, RegisterUsuarioActivity.class));
                 finish();
                 break;
         }
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
         finish();
     }
 
@@ -112,12 +112,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
 
     @Override
     public void setError(String ErrorMessage) {
-        Toast toast = Toast.makeText(this, ErrorMessage,Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, ErrorMessage, Toast.LENGTH_SHORT);
         toast.show();
     }
-
-
-
 
 
 }

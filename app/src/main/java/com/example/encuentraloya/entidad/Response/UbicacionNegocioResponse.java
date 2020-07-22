@@ -5,12 +5,15 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class UbicacionNegocioResponse {
+
     @SerializedName("ProcesadoOk")
     @Expose
     private Integer procesadoOk;
+
     @SerializedName("ListaError")
     @Expose
     private List<ListaError> listaError = null;
+
     @SerializedName("IdGenerado")
     @Expose
     private Integer idGenerado;

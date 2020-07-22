@@ -8,7 +8,7 @@ import com.example.encuentraloya.comun.Constantes;
 import com.example.encuentraloya.comun.SharedPreferencesManager;
 import com.example.encuentraloya.entidad.NegocioDto;
 import com.example.encuentraloya.entidad.Request.LoginInformationRequest;
-import com.example.encuentraloya.entidad.Request.ObtenerPorIdNegocioRequest;
+import com.example.encuentraloya.entidad.Request.ObtenerProdByNegocioRequest;
 import com.example.encuentraloya.entidad.Response.LoginInformationResponse;
 import com.example.encuentraloya.entidad.Response.ObtenerNegociosResponse;
 import com.example.encuentraloya.entidad.Response.ObtenerUbicacionNegocioPorIdNegocioResponse;
@@ -26,7 +26,7 @@ public class LoginInteractor {
     private INegocioService negocioService;
     private IUbicacionNegocioService unegocioService;
 
-    public void login(final String username, final String password, final boolean recordarCuenta , final OnLoginFinishedListener listener) {
+    public void login(final String username, final String password, final boolean recordarCuenta, final OnLoginFinishedListener listener) {
         LoginInformationRequest objUsu = new LoginInformationRequest();
         objUsu.setCorreoElectronico(username);
         objUsu.setContrasenia(password);
@@ -36,24 +36,23 @@ public class LoginInteractor {
         mAPIService.login(objUsu).enqueue(new Callback<LoginInformationResponse>() {
             @Override
             public void onResponse(Call<LoginInformationResponse> call, Response<LoginInformationResponse> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     LoginInformationResponse loginResponse = response.body();
-                    if (loginResponse.getToken() != null){
-
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_TOKEN,loginResponse.getToken());
-                        SharedPreferencesManager.setIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO,loginResponse.getIdUsuario());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRE,loginResponse.getNombre());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_APELLIDO,loginResponse.getApellido());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_CORREOELECTRONICO,loginResponse.getCorreoElectronico());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_URLIMAGENUSUARIO,loginResponse.getUrlImagen());
-                        obtenerNegocioByIdUsuario(loginResponse.getIdUsuario(),listener);
-                        //listener.onSuccess();
-                    }else{
+                    if (loginResponse.getToken() != null) {
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_TOKEN, loginResponse.getToken());
+                        SharedPreferencesManager.setIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO, loginResponse.getIdUsuario());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRE, loginResponse.getNombre());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_APELLIDO, loginResponse.getApellido());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_CORREOELECTRONICO, loginResponse.getCorreoElectronico());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_URLIMAGENUSUARIO, loginResponse.getUrlImagen());
+                        obtenerNegocioByIdUsuario(loginResponse.getIdUsuario(), listener);
+                        listener.onSuccess();
+                    } else {
                         listener.onError("El usuario ingresado no es válido");
                     }
 
-                }else{
-                    listener.onError(response.message().toString());
+                } else {
+                    listener.onError(response.message());
                 }
             }
 
@@ -62,27 +61,22 @@ public class LoginInteractor {
                 listener.onError(t.getMessage().toString());
             }
         });
-
-
-
-
     }
 
-    public void obtenerNegocioByIdUsuario(int idUsuario,final OnLoginFinishedListener listener){
+    public void obtenerNegocioByIdUsuario(int idUsuario, final OnLoginFinishedListener listener) {
         negocioService = ApiUtils.getAPIServiceNegocio();
         negocioService.ObtenerPorIdUsuario(idUsuario).enqueue(new Callback<ObtenerNegociosResponse>() {
             @Override
             public void onResponse(Call<ObtenerNegociosResponse> call, Response<ObtenerNegociosResponse> response) {
-                if(response.isSuccessful()) {
-                    List<NegocioDto> entitys= response.body().getCuerpo();
-                    if(entitys.size()>0){
+                if (response.isSuccessful()) {
+                    List<NegocioDto> entitys = response.body().getCuerpo();
+                    if (entitys.size() > 0) {
                         NegocioDto entityResponse = entitys.get(0);
-                        SharedPreferencesManager.setIntValue(Constantes.PREF_IDNEGOCIO,entityResponse.getIdNegocio());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRENEGOCIO,entityResponse.getNombre());
+                        SharedPreferencesManager.setIntValue(Constantes.PREF_IDNEGOCIO, entityResponse.getIdNegocio());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRENEGOCIO, entityResponse.getNombre());
                         obtenerUbicacionNegocioByIdNegocio(entityResponse.getIdNegocio());
                         listener.onSuccess();
                     }
-
                 }
             }
 
@@ -91,26 +85,25 @@ public class LoginInteractor {
 
             }
         });
-
     }
 
-    public void obtenerUbicacionNegocioByIdNegocio(int idNegocio){
-        ObtenerPorIdNegocioRequest entity = new ObtenerPorIdNegocioRequest();
-        entity.setIdNegocio(idNegocio);
+    public void obtenerUbicacionNegocioByIdNegocio(int idNegocio) {
+        ObtenerProdByNegocioRequest entity = new ObtenerProdByNegocioRequest();
+        entity.setIdBusiness(idNegocio);
 
         unegocioService = ApiUtils.getAPIServiceaUbicacionNegocio();
         unegocioService.ObtenerPorIdNegocio(entity).enqueue(new Callback<ObtenerUbicacionNegocioPorIdNegocioResponse>() {
             @Override
             public void onResponse(Call<ObtenerUbicacionNegocioPorIdNegocioResponse> call, Response<ObtenerUbicacionNegocioPorIdNegocioResponse> response) {
-                if(response.isSuccessful()) {
+                if (response.isSuccessful()) {
                     List<UbicacionNegocioDto> entitys = response.body().getCuerpo();
-                    if(entitys.size()>0){
+                    if (entitys.size() > 0) {
                         UbicacionNegocioDto entityResponse = entitys.get(0);
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_LATITUD_NEGOCIO,entityResponse.getLatitud().toString());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_LONGITUD_NEGOCIO,entityResponse.getLongitud().toString());
-                        SharedPreferencesManager.setIntValue(Constantes.PREF_ID_UBICACION_NEGOCIO,entityResponse.getIdNegocioUbicacion());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_TITULO_NEGOCIO,entityResponse.getTitulo());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_DESCRIPCION_NEGOCIO,entityResponse.getDescripcion());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_LATITUD_NEGOCIO, entityResponse.getLatitud().toString());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_LONGITUD_NEGOCIO, entityResponse.getLongitud().toString());
+                        SharedPreferencesManager.setIntValue(Constantes.PREF_ID_UBICACION_NEGOCIO, entityResponse.getIdNegocioUbicacion());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_TITULO_NEGOCIO, entityResponse.getTitulo());
+                        SharedPreferencesManager.setStringValue(Constantes.PREF_DESCRIPCION_NEGOCIO, entityResponse.getDescripcion());
                     }
                     //listener.onSuccess();
                 }
@@ -123,12 +116,12 @@ public class LoginInteractor {
         });
     }
 
-    public void verificaCuentaSiRecordar(final OnLoginFinishedListener listener){
+    public void verificaCuentaSiRecordar(final OnLoginFinishedListener listener) {
         boolean accesoValido = SharedPreferencesManager.getBooleanValue(Constantes.PREF_RECORDAR_ACCESO);
 
-        if(accesoValido==false){
+        if (accesoValido == false) {
             listener.offRecordarCuenta();
-        }else if(accesoValido==true){
+        } else if (accesoValido == true) {
             listener.onSuccess();
         }
 

@@ -18,4 +18,7 @@ public class ApiUtils {
         return RetrofitClient.getClient(BASE_URL).create(INegocioService.class);
     }
 
+    public static IProductService getAPIServiceProduct(){
+        return RetrofitClient.getClient(BASE_URL).create(IProductService.class);
+    }
 }
