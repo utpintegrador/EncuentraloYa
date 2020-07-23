@@ -1,79 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
 
 
     <RelativeLayout
-        android:padding="10dp"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:padding="10dp"
-            android:id="@+id/imageViewProducto"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/leche_template"
-            android:layout_gravity="center"
-            />
-        <TextView
-            android:id="@+id/tvDescripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cereral Corn"
-            android:layout_below="@+id/imageViewProducto"
-            />
-
-        <TextView
-            android:id="@+id/tvPrecio"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:textStyle="bold"
-            android:text="S/24.00"
-            android:layout_below="@+id/tvDescripcion"
-            android:gravity="center_vertical"
-
-            />
-
-        <TextView
-            android:layout_marginLeft="8dp"
-            android:id="@+id/tvPrecioAntiguo"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="S/64.00"
-            android:layout_below="@+id/tvDescripcion"
-            android:background="@drawable/ic_linea"
-            android:gravity="center_vertical"
-            android:layout_toRightOf="@+id/tvPrecio"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-            />
+            <ImageView
+                android:id="@+id/imageViewProduct"
+                android:layout_width="170dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/leche_template" />
 
-        <ImageView
-            android:id="@+id/btnAgregar"
-            android:padding="4dp"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:src="@drawable/ic_add_producto_2"
-            android:tint="#0089BA"
-            android:layout_below="@+id/tvDescripcion"
-            android:layout_alignParentRight="true"
-            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imagenOferta"
-            android:padding="0dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_rebaja"
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageViewProduct"
+                    android:text="Cereral Corn  Cereral Corn Cereral Corn" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            android:layout_alignParentRight="true"
-            />
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_below="@+id/tvDescription"
+                        android:gravity="center_vertical"
+                        android:text="S/24.00"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/tvPrecioAntiguo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvDescription"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/tvPrice"
+                        android:background="@drawable/ic_linea"
+                        android:gravity="center_vertical"
+                        android:text="S/64.00"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/btnAgregar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_below="@+id/tvDescription"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="41dp"
+                        android:padding="4dp"
+                        android:src="@drawable/ic_add_producto_2"
+                        android:tint="#0089BA" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
     </RelativeLayout>
-
-
-
 </android.support.v7.widget.CardView>

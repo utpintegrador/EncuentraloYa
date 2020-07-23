@@ -7,6 +7,8 @@ import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.Servicios.IProductService;
 import com.example.encuentraloya.comun.Constantes;
 import com.example.encuentraloya.comun.SharedPreferencesManager;
+import com.example.encuentraloya.entidad.CategoriaDto;
+import com.example.encuentraloya.entidad.ProductBusinessDto;
 import com.example.encuentraloya.entidad.Request.ObtenerProdByNegocioRequest;
 import com.example.encuentraloya.entidad.Response.ObtenerProdByNegocioResponse;
 import com.example.encuentraloya.entidad.UbicacionNegocioDto;
@@ -27,7 +29,6 @@ public class BuscarProductoInteractor {
                                final Integer idCategory, final Integer numberPage, final Integer totalRecords, final String orderColumn,
                                final String orderDirection, final OnSearchProductFinishedListener listener) {
         ObtenerProdByNegocioRequest obtenerProdByNegocioRequest = new ObtenerProdByNegocioRequest();
-
         obtenerProdByNegocioRequest.setIdBusiness(idBusiness);
         obtenerProdByNegocioRequest.setSearch(search);
         obtenerProdByNegocioRequest.setIdState(idState);
@@ -45,7 +46,8 @@ public class BuscarProductoInteractor {
             @Override
             public void onResponse(Call<ObtenerProdByNegocioResponse> call, Response<ObtenerProdByNegocioResponse> response) {
                 if (response.isSuccessful()) {
-                    listener.onSuccess();
+                    List<ProductBusinessDto> list_productBusinessDto =  response.body().getList_ProductBusiness();
+                    listener.onSuccess(list_productBusinessDto);
                 }
             }
 
