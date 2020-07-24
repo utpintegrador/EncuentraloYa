@@ -5,23 +5,27 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.encuentraloya.R;
 import com.example.encuentraloya.entidad.ProductBusinessDto;
-import com.squareup.picasso.Picasso;
+import com.example.encuentraloya.presenter.BuscarProductoPresenter;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHolder> {
 
+    BuscarProductoPresenter presenter;
     public List<ProductBusinessDto> list_productBusinessDto;
     Context context;
 
-    public ProductAdapter(List<ProductBusinessDto> list_productBusinessDto, Context context) {
+    public ProductAdapter(List<ProductBusinessDto> list_productBusinessDto, Context context, BuscarProductoPresenter presenter) {
         this.list_productBusinessDto = list_productBusinessDto;
         this.context = context;
+        this.presenter = presenter;
     }
 
     @Override
@@ -31,13 +35,31 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
     }
 
     @Override
-    public void onBindViewHolder(GridHolder holder, int position) {
+    public void onBindViewHolder(GridHolder holder, final int position) {
         // Descripcion
         holder.tv_prodDescription.setText(list_productBusinessDto.get(position).getDescriptionProduct());
         // Precio
-        holder.tv_prodPrice.setText("S/".concat(Double.toString(list_productBusinessDto.get(position).getPrice())));
+        double precio = list_productBusinessDto.get(position).price;
+        holder.tv_prodPrice.setText("S/".concat(Double.toString(precio)));
         // Url Imagen
         //Picasso.with(context).load(list_productBusinessDto.get(position).getUrlImage()).into(holder.iv_prod);
+
+        //evento click
+        holder.btn_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                presenter.agregarProducto(list_productBusinessDto.get(position).getIdProduct(),
+                        1,
+                        list_productBusinessDto.get(position).getDescriptionProduct(),
+                        list_productBusinessDto.get(position).getPrice(),
+                        list_productBusinessDto.get(position).getUrlImage());
+
+            }
+        });
+
+
+
     }
 
     @Override
@@ -50,12 +72,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
         private ImageView iv_prod;
         private TextView tv_prodDescription;
         private TextView tv_prodPrice;
+        private ImageButton btn_agregar;
 
         public GridHolder(View v) {
             super(v);
             iv_prod = (ImageView) v.findViewById(R.id.imageViewProduct);
             tv_prodDescription = (TextView) v.findViewById(R.id.tvDescription);
             tv_prodPrice = (TextView) v.findViewById(R.id.tvPrice);
+            btn_agregar =(ImageButton) v.findViewById(R.id.btnAgregar);
         }
     }
+
 }

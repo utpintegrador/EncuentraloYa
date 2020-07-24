@@ -28,38 +28,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.Implement.EstadisticaActivity">
+
+        </activity>
         <activity android:name=".view.Implement.MyNegocioActivity"></activity>
-        <activity android:name=".RegistaraNegocioActivity"></activity>
-        <activity android:name=".RegistrarUbicacionTiendaActivity"></activity>
+        <activity android:name=".RegistaraNegocioActivity" />
+        <activity android:name=".RegistrarUbicacionTiendaActivity" />
         <activity android:name=".view.Implement.DetallePedidoActivity" />
-        <activity android:name=".view.Implement.MisPedidoActivity" />
+        <activity android:name=".view.Implement.MisPedidoActivity"></activity>
         <activity android:name=".view.Implement.DetalleTiendaActivity" />
         <activity android:name=".view.Implement.ConfirmarPedidoActivity" />
-        <activity android:name=".view.Implement.CarritoActivity" />
+        <activity android:name=".view.Implement.CarritoActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
         <activity android:name=".view.Implement.DetalleProductoActivity" />
         <activity android:name=".view.Implement.CambiarContraseniaActivity" />
         <activity android:name=".view.Implement.OrdernarActivity" />
-        <activity android:name=".view.Implement.PerfilActivity" >
+        <activity android:name=".view.Implement.PerfilActivity"></activity>
+        <activity android:name=".view.Implement.BuscarProductoActivity" >
 
         </activity>
 
-        <activity android:name=".view.Implement.BuscarProductoActivity" />
-        <activity android:name=".view.Implement.ListaTiendasCercanasActivity">
-        </activity>
+
+        <activity android:name=".view.Implement.ListaTiendasCercanasActivity"></activity>
         <activity
             android:name=".view.Implement.HomeActivity"
-            android:label="@string/title_activity_home" />
+            android:label="@string/title_activity_home">
+
+        </activity>
         <activity android:name=".view.Implement.RecoverAccountActivity" />
         <activity android:name=".view.Implement.RegisterUsuarioActivity" />
-        <activity android:name=".view.Implement.LoginActivity" >
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".view.Implement.LoginActivity"></activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

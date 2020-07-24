@@ -29,8 +29,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_categoria, parent, false);
-        ViewHolder viewHolder = new ViewHolder(v) {
-        };
+        ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
@@ -38,6 +37,7 @@ public class CategoriaAdapter extends RecyclerView.Adapter<CategoriaAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         String nombreCategoria = listaCategoria.get(position).getDescripcion();
         String urlCategoria =  listaCategoria.get(position).getUrlImagen();
+
         holder.name_categoria.setText(nombreCategoria);
 
         Picasso.with(context).load(urlCategoria).into(holder.img_categoria);

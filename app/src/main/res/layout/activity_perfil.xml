@@ -25,15 +25,36 @@
             >
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/imgPerfil"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
-
                 android:src="@drawable/img_perfil"
-
+                android:visibility="visible"
                 ></ImageView>
+            <ProgressBar
+                android:layout_gravity="center"
+                android:id="@+id/progress_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:visibility="gone" />
 
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_agregarFoto"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            app:srcCompat="@drawable/ic_agregar_foto"
+            android:tint="#E5E7E9"
+            android:backgroundTint="#0089BA"
+
+            />
+
 
     </RelativeLayout>
 
@@ -121,7 +142,7 @@
                     android:drawableLeft="@drawable/ic_market"
                     android:drawableTint="#0089BA"
                     android:drawablePadding="7dp"
-                    android:text="Mis Negocio"
+                    android:text="Mi Negocio"
                     android:textColor="#797D7F"
                     />
                 <ImageButton
@@ -150,7 +171,7 @@
                     android:textAllCaps="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_order"
+                    android:drawableLeft="@drawable/ic_lista"
                     android:drawableTint="#0089BA"
                     android:drawablePadding="7dp"
                     android:text="Mis Pedidos"
@@ -324,7 +345,7 @@
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_carito"
+                android:drawableTop="@drawable/ic_shopping"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:drawableTint="#80DEEA"

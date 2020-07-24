@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface OnSearchProductFinishedListener {
     void onSuccess(List<ProductBusinessDto> list_productBusinessDto);
+
+    void onSuccessAddProducto(String mensaje);
+    void onMensaje(String mensaje);
 }

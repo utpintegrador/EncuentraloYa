@@ -10,26 +10,28 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="#0089BA"
         android:layout_alignParentTop="true"
         android:gravity="center" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="#0089BA"
-            >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="CONFIRMAR PEDIDO"
+                android:gravity="center"
+                />
             <ImageButton
                 android:layout_width="45dp"
                 android:layout_height="60dp"
                 android:background="@drawable/ic_izquierda"
                 android:backgroundTint="#fff"
                 />
-        </LinearLayout>
+
 
 
     </RelativeLayout>

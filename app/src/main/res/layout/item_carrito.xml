@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#E5E7E9"
+    android:layout_marginVertical="5dp"
     >
 
     <LinearLayout
@@ -18,18 +19,18 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_border_total_blanco"
                 >
 
                 <Button
                     android:id="@+id/btnEliminar"
-                    android:layout_marginTop="0dp"
+
                     android:layout_width="20dp"
                     android:layout_height="20dp"
 
-                    android:layout_marginRight="15dp"
+                    android:layout_marginRight="5dp"
                     android:layout_alignParentRight="true"
                     android:drawableTop="@drawable/ic_cerrar"
                     android:drawableTint="#da6469 "
@@ -37,20 +38,19 @@
                     android:background="#fff"
                     />
 
-                <de.hdodenhof.circleimageview.CircleImageView
+                <ImageView
                     android:id="@+id/imageView"
                     android:gravity="center"
 
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="120dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/leche_template"
-                    app:civ_border_width="0dp"
-                    app:civ_border_color="#0933BA"
-                    android:layout_below="@+id/btnEliminar"
+
 
                     android:layout_alignParentLeft="true"
                     />
+
 
                 <TextView
                     android:layout_marginTop="7dp"
@@ -58,9 +58,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="15sp"
+                    android:layout_marginRight="5dp"
                     android:layout_toRightOf="@id/imageView"
-                    android:layout_below="@+id/btnEliminar"
+               android:layout_toLeftOf="@+id/btnEliminar"
                     android:text="Arroz Integral Metro Bolsa 750 gassssssssssssssssssssss"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="#6aa568"
@@ -74,7 +74,7 @@
                     android:layout_height="29dp"
                     android:layout_below="@id/textViewTitle"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginRight="15sp"
+                    android:layout_marginRight="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_toRightOf="@id/imageView"
                     android:text="Pelientes efficture sed loreasassssssssssssssssssn quist volutap. Mauris enim..."
@@ -83,66 +83,90 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
                 <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/textPriceUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="29dp"
+                    android:layout_below="@id/textViewShortDesc"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/imageView"
+                    android:text="Precio Unitario: 15"
+                    android:textStyle="bold"
+                    android:textColor="#8e8f8f"
+                    android:textSize="10sp"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+                <TextView
                     android:id="@+id/textPrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     android:layout_marginBottom="15dp"
+                    android:layout_height="29dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_below="@+id/textViewShortDesc"
-
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-
-                    android:layout_marginRight="15dp"
+                    android:layout_marginRight="5dp"
                     android:layout_alignParentRight="true"
-
                     android:background="@color/colorPrimary"
                     android:text="S/25.00"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
                     android:textColor="#4d4d4d"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                     />
+                    android:gravity="center_vertical"
+                    />
 
 
-                    <Button
-                        android:id="@+id/btnRestar"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_toRightOf="@id/imageView"
-                        android:layout_below="@+id/textViewShortDesc"
-                        android:layout_marginLeft="5dp"
-                        android:text="-"
-                        android:textSize="14sp"
-                        android:textColor="#fff"
-                        android:background="@drawable/bg_horizontal_left_border_azuleable"
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView">
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        >
+                        <Button
+                            android:id="@+id/btnRestar"
 
-                        />
-                    <Button
-                        android:id="@+id/btnCantidad"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_below="@+id/textViewShortDesc"
-                        android:layout_toRightOf="@id/btnRestar"
-                        android:text="1"
-                        android:textSize="12sp"
-                        android:textColor="#7f8282"
-                        android:background="@drawable/bg_horizontal_medium_border"
-                        />
-                    <Button
-                        android:id="@+id/btnSumar"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_below="@+id/textViewShortDesc"
-                        android:layout_toRightOf="@id/btnCantidad"
-                        android:text="+"
-                        android:textSize="14sp"
-                        android:textColor="#fff"
-                        android:background="@drawable/bg_horizontal_right_border"
-                        />
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
 
+                            android:text="-"
+                            android:textSize="14sp"
+                            android:textColor="#fff"
+                            android:background="@drawable/bg_horizontal_left_border_azuleable"
+
+                            />
+                        <Button
+                            android:id="@+id/btnCantidad"
+
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+
+                            android:text="1"
+                            android:textSize="14sp"
+                            android:textColor="#7f8282"
+                            android:background="@drawable/bg_horizontal_medium_border"
+                            />
+                        <Button
+                            android:id="@+id/btnSumar"
+
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+
+                            android:text="+"
+                            android:textSize="14sp"
+                            android:textColor="#fff"
+                            android:background="@drawable/bg_horizontal_right_border"
+                            />
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
 
 
             </RelativeLayout>

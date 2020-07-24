@@ -17,10 +17,44 @@ public class PerfilPresenter  implements OnPerfilFinishedListener {
         interactor.getPerfilData(this);
     }
 
-    @Override
-    public void onSuccesGetPerfilData(String nombreCompleto, String correoElectronico) {
+    public void clearLocalData(){
+        interactor.setClearSharedPreferences(this);
+    }
+
+    public void setImagenPerfil(String urlImagenPerfil){
         if (view != null) {
-            view.showPerfilDatos(nombreCompleto,correoElectronico);
+            view.showProgress();
+        }
+        interactor.SubirImagen(urlImagenPerfil,this);
+    }
+
+    @Override
+    public void onSuccesGetPerfilData(String nombreCompleto, String correoElectronico,  String urlImagenPerfil ) {
+        if (view != null) {
+            view.hideProgress();
+            view.showPerfilDatos(nombreCompleto,correoElectronico, urlImagenPerfil);
+        }
+    }
+
+    @Override
+    public void onCerrarSesion() {
+        if (view != null) {
+            view.showNavegationLogin();
+        }
+    }
+
+    @Override
+    public void onSuccesSaveImage(String urlImagen) {
+        if (view != null) {
+            view.showImagenPerfil(urlImagen);
+        }
+    }
+
+    @Override
+    public void onMensaje(String mensaje) {
+        if (view != null) {
+            view.hideProgress();
+            view.showMensaje(mensaje);
         }
     }
 }

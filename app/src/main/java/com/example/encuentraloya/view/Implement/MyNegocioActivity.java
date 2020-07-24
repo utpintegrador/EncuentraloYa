@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.example.encuentraloya.view.Interfaces.IMyNegocioView;
 public class MyNegocioActivity extends AppCompatActivity implements  View.OnClickListener, IMyNegocioView {
     MyNegocioPresenter presenter;
 
+    ImageButton btn_back;
     Button btn_verMapa;
     Button btn_actualizar;
     TextView tv_NombreTienda;
@@ -34,6 +36,7 @@ public class MyNegocioActivity extends AppCompatActivity implements  View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_negocio);
 
+        btn_back = (ImageButton) findViewById(R.id.btn_back);
         btn_verMapa = (Button) findViewById(R.id.btn_ver_mapa);
         btn_actualizar=(Button)findViewById(R.id.btn_actualizar_ubicacion_negocio);
         tv_NombreTienda = (TextView) findViewById(R.id.tvTienda);
@@ -45,7 +48,7 @@ public class MyNegocioActivity extends AppCompatActivity implements  View.OnClic
         //set listener
         btn_verMapa.setOnClickListener(this);
         btn_actualizar.setOnClickListener(this);
-
+        btn_back.setOnClickListener(this);
 
         //init
         presenter = new MyNegocioPresenter(this, new MyNegocioInteractor());
@@ -57,9 +60,9 @@ public class MyNegocioActivity extends AppCompatActivity implements  View.OnClic
 
 
     public void setActualizarInformacion(){
-        if(Constantes.RETURN_MAP_LONGITUD!=0 && Constantes.RETURN_MAP_LATITUD!=0 ){
+        //if(Constantes.RETURN_MAP_LONGITUD!=0 && Constantes.RETURN_MAP_LATITUD!=0 ){
             presenter.setDetalleTienda(Constantes.RETURN_MAP_LATITUD,Constantes.RETURN_MAP_LONGITUD,ed_mi_negocio_titulo.getText().toString());
-        }
+        //}
     }
 
     @Override
@@ -71,6 +74,10 @@ public class MyNegocioActivity extends AppCompatActivity implements  View.OnClic
             case R.id.btn_ver_mapa:
                 startActivity(new Intent(this, RegistaraNegocioActivity.class));
                 //finish();
+                break;
+            case R.id.btn_back:
+                startActivity(new Intent(this, PerfilActivity.class));
+                finish();
                 break;
 
         }

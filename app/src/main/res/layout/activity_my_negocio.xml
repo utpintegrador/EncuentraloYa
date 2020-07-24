@@ -23,6 +23,7 @@
             >
 
             <ImageButton
+                android:id="@+id/btn_back"
                 android:layout_width="45dp"
                 android:layout_height="60dp"
                 android:background="@drawable/ic_izquierda"
@@ -66,6 +67,7 @@
             >
 
             <ImageView
+                android:padding="15dp"
                 android:id="@+id/imageView5"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
@@ -111,18 +113,9 @@
                 android:tint="#7B7D7D"
                 />
 
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/tvTiendaNombre"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:textStyle="bold"
-                android:text="NEGOCIO"
-                android:layout_toRightOf="@id/imageView1"
-                android:layout_toLeftOf="@+id/imageVer"
-                android:gravity="center_vertical"
-                />
+
             <EditText
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/et_titulo_negocio"
                 android:layout_width="match_parent"
@@ -132,7 +125,7 @@
                 android:hint="Ingrese el nombre de su negocio"
                 android:paddingLeft="9dp"
                 android:layout_toRightOf="@id/imageView1"
-                android:layout_below="@+id/tvTiendaNombre"
+
                 android:gravity="center_vertical"
                 android:textColor="#7B7D7D"
                 android:background="@drawable/bg_button_border_gris"
@@ -195,35 +188,35 @@
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/bg_button_border_test"
-                android:text="+"
+                android:drawableTint="#ffffff"
+                android:drawableLeft="@drawable/ic_ver"
                 android:textSize="18dp"
+                android:paddingLeft="8dp"
+                android:drawablePadding="8dp"
                 android:textColor="#ffffff"
                 />
 
 
+            <ProgressBar
+
+                android:layout_above="@+id/btn_actualizar_ubicacion_negocio"
+                android:id="@+id/progress_actualizar_ubicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:visibility="gone" />
 
             <Button
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/tvDireccion"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="60dp"
                 android:id="@+id/btn_actualizar_ubicacion_negocio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_button_border_test"
                 android:text="Actualizar Informacion"
                 android:textColor="#ffffff"
-                android:padding="10dp"
 
                 />
-
-
-
-            <ProgressBar
-                android:layout_below="@+id/btn_actualizar_ubicacion_negocio"
-                android:id="@+id/progress_actualizar_ubicacion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:visibility="gone" />
 
         </RelativeLayout>
 

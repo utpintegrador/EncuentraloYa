@@ -91,7 +91,9 @@ implements OnMapReadyCallback, IMyLocation , View.OnClickListener{
             MyLocation location = new MyLocation(this,this  );
         }
 
-
+        //asigno location por default variables
+        _point_latitud= Constantes.LATITUD_VALUE;
+        _point_longitud=Constantes.LONGITUD_VALUE;
 
         mapView = (MapView) findViewById(R.id.mapview);
         mapView.setStyleUrl(Style.MAPBOX_STREETS);

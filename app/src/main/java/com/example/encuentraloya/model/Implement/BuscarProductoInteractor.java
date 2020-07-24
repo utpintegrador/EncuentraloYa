@@ -1,17 +1,15 @@
 package com.example.encuentraloya.model.Implement;
 
-import android.app.FragmentManager;
-import android.widget.Toast;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.Servicios.IProductService;
-import com.example.encuentraloya.comun.Constantes;
-import com.example.encuentraloya.comun.SharedPreferencesManager;
-import com.example.encuentraloya.entidad.CategoriaDto;
+import com.example.encuentraloya.comun.PedidoSQLite;
 import com.example.encuentraloya.entidad.ProductBusinessDto;
 import com.example.encuentraloya.entidad.Request.ObtenerProdByNegocioRequest;
 import com.example.encuentraloya.entidad.Response.ObtenerProdByNegocioResponse;
-import com.example.encuentraloya.entidad.UbicacionNegocioDto;
 import com.example.encuentraloya.model.Interfaces.OnSearchProductFinishedListener;
 
 import java.util.List;
@@ -23,11 +21,16 @@ import retrofit2.Response;
 public class BuscarProductoInteractor {
 
     private IProductService iProductService;
-    private OnSearchProductFinishedListener listener;
+   Context context;
+
+    public BuscarProductoInteractor(Context context) {
+        this.context = context;
+    }
 
     public void searchProducts(final Integer idBusiness, final String search, final Integer idState, final Integer idMoney,
                                final Integer idCategory, final Integer numberPage, final Integer totalRecords, final String orderColumn,
                                final String orderDirection, final OnSearchProductFinishedListener listener) {
+
         ObtenerProdByNegocioRequest obtenerProdByNegocioRequest = new ObtenerProdByNegocioRequest();
         obtenerProdByNegocioRequest.setIdBusiness(idBusiness);
         obtenerProdByNegocioRequest.setSearch(search);
@@ -53,9 +56,23 @@ public class BuscarProductoInteractor {
 
             @Override
             public void onFailure(Call<ObtenerProdByNegocioResponse> call, Throwable t) {
+                listener.onMensaje("Al parecer hubo un error");
 
             }
         });
+    }
+
+
+
+    public void agregarProducto(int idProducto, double cantidad, String descripcion, double precio, String urlImagen,
+                                final OnSearchProductFinishedListener listener ){
+        PedidoSQLite db = new PedidoSQLite(context);
+       if(db.agregarProducto(idProducto,cantidad,descripcion,precio,urlImagen)){
+            listener.onSuccessAddProducto("El producto ha sido agregado");
+        }else{
+            listener.onMensaje("Al parecer hubo un error");
+        }
+
     }
 
 }

@@ -45,8 +45,7 @@ dependencies {
     }
 
     implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.1.4'
 
-    // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
 }

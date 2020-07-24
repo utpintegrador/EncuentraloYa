@@ -2,26 +2,33 @@ package com.example.encuentraloya.view.Implement;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.example.encuentraloya.Adaptador.CategoriaAdapter;
 import com.example.encuentraloya.R;
 import com.example.encuentraloya.entidad.CategoriaDto;
 import com.example.encuentraloya.model.Implement.HomeInteractor;
 import com.example.encuentraloya.presenter.HomePresenter;
 import com.example.encuentraloya.view.Interfaces.IHomeView;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IHomeView {
@@ -31,19 +38,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Button navegation_carrito;
     Button navegation_perfil;
 
+    TextView tv_tiendas_cercanas;
+
     RecyclerView rvCategoria;
     ProgressBar progressBar;
 
     RelativeLayout navegation_tiendas_cercanas;
+    //BARRA
+    BarChart barChart;
+
 
     HomePresenter presenter;
-
     CategoriaAdapter catAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        tv_tiendas_cercanas = (TextView)this.findViewById(R.id.tv_tiendas_cercanas);
 
         navegation_inicio =(Button) this.findViewById(R.id.btn_inicio);
         navegation_buscar=(Button) this.findViewById(R.id.btn_buscar);
@@ -52,8 +65,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         navegation_tiendas_cercanas=(RelativeLayout)  this.findViewById(R.id.rl_tiendas_cercanas);
         progressBar =(ProgressBar)  this.findViewById(R.id.progress_home_categoria);
 
-        //LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        barChart =(BarChart) findViewById(R.id.barChart) ;
 
+        ////
         LinearLayoutManager layoutManager =
                 new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
 
@@ -125,9 +139,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void showMessage(String message) {
-
+        Toast toast = Toast.makeText(this, message,Toast.LENGTH_SHORT);
+        toast.show();
     }
 
+    @Override
+    public void showGastoUltimosMeses(ArrayList<BarEntry> values, ArrayList<String> labels) {
+        BarDataSet dataset = new BarDataSet(values, "# Gasto general de los últimos 5 meses");
+        barChart.getXAxis().setPosition(XAxis.XAxisPosition.TOP);
+        BarData data = new BarData(labels, dataset);
+        dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        barChart.setDescription("");
+        barChart.setData(data);
+        barChart.animateY(3000);
+    }
+
+    @Override
+    public void showCantidadDisponibleTiendas(String mensaje) {
+        tv_tiendas_cercanas.setText(mensaje);
+    }
 
 
 }

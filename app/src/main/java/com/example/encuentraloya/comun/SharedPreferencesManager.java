@@ -44,4 +44,18 @@ public class SharedPreferencesManager {
     public static int getIntValue(String etiqueta){
         return getSharedPreferences().getInt(etiqueta, 0);
     }
+
+    public static boolean clearSharedPreferences(){
+        SharedPreferences.Editor editor = getSharedPreferences().edit();
+        editor.clear();
+        editor.commit();
+        return true;
+    }
+
+    public static boolean removeValue(String etiqueta){
+        SharedPreferences.Editor editor = getSharedPreferences().edit();
+        editor.remove(etiqueta);
+        editor.commit();
+        return true;
+    }
 }

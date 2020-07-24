@@ -8,7 +8,7 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface IProductService {
-
     @POST("Producto/ObtenerPorIdNegocio")
     Call<ObtenerProdByNegocioResponse> obtenerPorIdNegocio(@Body ObtenerProdByNegocioRequest entity);
+
 }

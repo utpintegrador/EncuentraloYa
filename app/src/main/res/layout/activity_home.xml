@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_above="@+id/footer"
         >
 
         <!--  SECCION BUSCAR TIENDA -->
@@ -38,10 +39,10 @@
                     />
 
                 <TextView
-
+                    android:id="@+id/tv_tiendas_cercanas"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
-                    android:text="Hay 3 tiendas disponibles cerca de tu ubicación."
+                    android:text=""
                     android:textColor="#797D7F"
                     android:textAlignment="center"
                     android:gravity="center"
@@ -89,11 +90,12 @@
                 android:orientation="vertical">
 
                 <ProgressBar
+                    android:padding="70dp"
                     android:paddingVertical="20dp"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/progress_home_categoria"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="180dp"
                     android:visibility="visible" />
 
             </LinearLayout>
@@ -114,17 +116,22 @@
         <LinearLayout
             android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
                 android:paddingLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RECOMENDADO"
+                android:text="ESTADISTICA DE COMPRAS"
                 android:textColor="#0089BA"
                 />
-
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="30dp"
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
@@ -188,7 +195,7 @@
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_carito"
+                android:drawableTop="@drawable/ic_shopping"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:drawableTint="#80DEEA"

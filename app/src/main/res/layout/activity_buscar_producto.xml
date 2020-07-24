@@ -10,14 +10,19 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+          >
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="15dp">
+            android:paddingTop="15dp"
+
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,11 +51,12 @@
                     android:inputType="text"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="#797D7F" />
-
+                    android:textColor="#797D7F"
+                    />
             </LinearLayout>
 
         </LinearLayout>
+
 
     </RelativeLayout>
 
@@ -59,7 +65,8 @@
         android:id="@+id/body_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header">
+        android:layout_below="@+id/header"
+        >
 
 
         <!-- Items -->
@@ -183,28 +190,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/body_one"
-        android:background="#E5E7E9">
+        android:background="#E5E7E9"
+        >
 
         <!-- ordernar -->
         <RelativeLayout
             android:id="@+id/mnu_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentLeft="true"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content" android:orientation="horizontal">
 
                 <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="30dp"
-                    android:backgroundTint="#E5E7E9"
+                    android:layout_marginLeft="20dp"
+                    app:srcCompat="@drawable/ic_ordenar_lista_2"
                     android:tint="#0089BA"
-                    app:srcCompat="@drawable/ic_ordenar_lista_2" />
+                    android:backgroundTint="#E5E7E9"
+
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,49 +234,63 @@
             android:id="@+id/mnu_filter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentRight="true"
+            >
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="30dp"
-                android:backgroundTint="#E5E7E9"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_filtro"
                 android:tint="#0089BA"
-                app:srcCompat="@drawable/ic_filtro" />
+                android:backgroundTint="#E5E7E9"
+                />
 
         </RelativeLayout>
 
+
+
     </RelativeLayout>
+
 
     <!-- ITEMS -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/body_two"
         android:layout_above="@+id/footer"
-        android:layout_below="@+id/body_two">
+        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
+
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_products"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="10dp"
-                android:orientation="vertical" />
-        </LinearLayout>
+                android:overScrollMode="never"
 
-        <ProgressBar
-            android:id="@+id/progress_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
+                ></android.support.v7.widget.RecyclerView>
+
+            <ProgressBar
+                android:id="@+id/progress_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                />
+
+
+
+
+
 
     </RelativeLayout>
+
 
 
     <!-- FOOTER MENU-->
@@ -275,74 +299,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center">
+        android:gravity="center" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:background="#0089BA"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
 
             <!--INICIO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_home"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Incio"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
             <!--BUSCAR-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_buscar"
-                android:drawableTint="#fff "
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#fff "
                 android:text="Buscar"
-                android:textAllCaps="false"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:layout_width="fill_parent" />
 
 
             <!--CARRITO-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_carito"
-                android:drawableTint="#80DEEA"
+                android:drawableTop="@drawable/ic_shopping"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Carrito"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
             <!--PERFIL-->
             <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:layout_weight="0.5"
+                android:layout_height="wrap_content"
                 android:background="#0089BA"
                 android:drawableTop="@drawable/ic_usuario"
-                android:drawableTint="#80DEEA"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
                 android:text="Perfil"
-                android:textAllCaps="false"
-                android:textColor="#80DEEA" />
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
 
 
         </LinearLayout>

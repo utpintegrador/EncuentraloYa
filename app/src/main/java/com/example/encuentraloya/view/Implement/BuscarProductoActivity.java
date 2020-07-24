@@ -1,8 +1,8 @@
 package com.example.encuentraloya.view.Implement;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.KeyEvent;
@@ -24,9 +24,9 @@ import com.example.encuentraloya.view.Interfaces.IBuscarProductoView;
 import java.util.List;
 
 public class BuscarProductoActivity extends AppCompatActivity implements IBuscarProductoView {
-
     ProductAdapter productAdapter;
     private BuscarProductoPresenter presenter;
+
     private EditText search;
     private ProgressBar progressBar;
     private RecyclerView recyclerView_products;
@@ -36,8 +36,8 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_producto);
 
-        search = this.findViewById(R.id.search_product);
-        progressBar = this.findViewById(R.id.progress_search);
+        search =(EditText) this.findViewById(R.id.search_product);
+        progressBar = (ProgressBar) this.findViewById(R.id.progress_search);
 
         recyclerView_products = this.findViewById(R.id.rv_products);
         //recyclerView_products.setHasFixedSize(true);
@@ -45,7 +45,7 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
 
 
         //presenter = new RegisterUsuarioPresenter(this, new RegisterUsuarioInteractor());
-        presenter = new BuscarProductoPresenter(this, new BuscarProductoInteractor());
+        presenter = new BuscarProductoPresenter(this, new BuscarProductoInteractor(this));
 
         search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -79,8 +79,19 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
     }
 
     @Override
+    public void showRecyclerView() {
+        recyclerView_products.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideRecyclerView() {
+        recyclerView_products.setVisibility(View.GONE);
+    }
+
+    @Override
     public void showProducts(List<ProductBusinessDto> list_productBusinessDto) {
-        productAdapter = new ProductAdapter(list_productBusinessDto, this);
+        productAdapter= null;
+        productAdapter = new ProductAdapter(list_productBusinessDto, this,presenter);
         recyclerView_products.setAdapter(productAdapter);
     }
 
@@ -92,5 +103,17 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
     @Override
     public void hideEmpty() {
 
+    }
+
+    @Override
+    public void showMensaje(String mensaje) {
+        Toast toast = Toast.makeText(this, mensaje,Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public void showSuccesAddProducto(String mensaje) {
+        Toast toast = Toast.makeText(this, mensaje,Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

@@ -1,6 +1,6 @@
 package com.example.encuentraloya.Servicios;
-
-import com.example.encuentraloya.entidad.Request.ObtenerProdByNegocioRequest;
+import com.example.encuentraloya.entidad.NegocioUbicacionDto;
+import com.example.encuentraloya.entidad.Request.ObtenerPorIdNegocioRequest;
 import com.example.encuentraloya.entidad.Request.UbicacionNegocioRequest;
 import com.example.encuentraloya.entidad.Response.ObtenerUbicacionNegocioPorIdNegocioResponse;
 import com.example.encuentraloya.entidad.Response.ObtenerUbicacionNegocioPorIdResponse;
@@ -26,6 +26,7 @@ public interface IUbicacionNegocioService {
     Call<genericListError> negocioUbicacionActualizaar(@Body UbicacionNegocioDto entity);
 
     @POST("NegocioUbicacion/ObtenerPorIdNegocio")
-    Call<ObtenerUbicacionNegocioPorIdNegocioResponse> ObtenerPorIdNegocio(@Body ObtenerProdByNegocioRequest entity);
+    Call<ObtenerUbicacionNegocioPorIdNegocioResponse> ObtenerPorIdNegocio(@Body ObtenerPorIdNegocioRequest entity);
+
 
 }

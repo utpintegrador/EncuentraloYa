@@ -14,6 +14,7 @@ import com.example.encuentraloya.entidad.Response.UbicacionNegocioResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 
@@ -29,9 +30,13 @@ public interface APIService {
     Call<RecuperarCuentaResponse> recuperarContrasenia(@Body RecuperarCuentaRequest entity);
 
     @POST("Categoria/Obtener")
-    Call<CategoriaResponse> obtenerCategorias(@Body CategoriaRequest entity);
+   Call<CategoriaResponse> obtenerCategorias(@Body CategoriaRequest entity);
+
 
     @POST("NegocioUbicacion")
     Call<UbicacionNegocioResponse> negocioUbicacion(@Body UbicacionNegocioRequest entity);
+
+
+
 
 }
