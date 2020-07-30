@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.encuentraloya.R;
 import com.example.encuentraloya.entidad.ProductBusinessDto;
 import com.example.encuentraloya.presenter.BuscarProductoPresenter;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
         double precio = list_productBusinessDto.get(position).price;
         holder.tv_prodPrice.setText("S/".concat(Double.toString(precio)));
         // Url Imagen
-        //Picasso.with(context).load(list_productBusinessDto.get(position).getUrlImage()).into(holder.iv_prod);
+        Picasso.with(context).load(list_productBusinessDto.get(position).getUrlImage()).into(holder.iv_prod);
 
         //evento click
         holder.btn_agregar.setOnClickListener(new View.OnClickListener() {

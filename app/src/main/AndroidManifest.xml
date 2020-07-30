@@ -39,10 +39,7 @@
         <activity android:name=".view.Implement.DetalleTiendaActivity" />
         <activity android:name=".view.Implement.ConfirmarPedidoActivity" />
         <activity android:name=".view.Implement.CarritoActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
@@ -52,7 +49,10 @@
         <activity android:name=".view.Implement.OrdernarActivity" />
         <activity android:name=".view.Implement.PerfilActivity"></activity>
         <activity android:name=".view.Implement.BuscarProductoActivity" >
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 

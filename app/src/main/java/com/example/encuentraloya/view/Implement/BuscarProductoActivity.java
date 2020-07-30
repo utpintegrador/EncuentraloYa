@@ -1,8 +1,8 @@
 package com.example.encuentraloya.view.Implement;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.KeyEvent;
@@ -36,13 +36,11 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_producto);
 
-        search =(EditText) this.findViewById(R.id.search_product);
+        search = (EditText) this.findViewById(R.id.search_product);
         progressBar = (ProgressBar) this.findViewById(R.id.progress_search);
 
         recyclerView_products = this.findViewById(R.id.rv_products);
         //recyclerView_products.setHasFixedSize(true);
-        recyclerView_products.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-
 
         //presenter = new RegisterUsuarioPresenter(this, new RegisterUsuarioInteractor());
         presenter = new BuscarProductoPresenter(this, new BuscarProductoInteractor(this));
@@ -90,9 +88,12 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
 
     @Override
     public void showProducts(List<ProductBusinessDto> list_productBusinessDto) {
-        productAdapter= null;
-        productAdapter = new ProductAdapter(list_productBusinessDto, this,presenter);
+        recyclerView_products.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        productAdapter = null;
+        recyclerView_products.setAdapter(null);
+        productAdapter = new ProductAdapter(list_productBusinessDto, this, presenter);
         recyclerView_products.setAdapter(productAdapter);
+        productAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -107,13 +108,13 @@ public class BuscarProductoActivity extends AppCompatActivity implements IBuscar
 
     @Override
     public void showMensaje(String mensaje) {
-        Toast toast = Toast.makeText(this, mensaje,Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, mensaje, Toast.LENGTH_SHORT);
         toast.show();
     }
 
     @Override
     public void showSuccesAddProducto(String mensaje) {
-        Toast toast = Toast.makeText(this, mensaje,Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, mensaje, Toast.LENGTH_SHORT);
         toast.show();
     }
 }
