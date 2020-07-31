@@ -23,6 +23,17 @@ public class CarritoPresenter implements OnCarritoFinishedInteractor{
         interactor.listarCarrito( this);
     }
 
+
+    public void moveContinuar(){
+        if(view != null){
+            if(interactor.getExisteProductos()>0){
+                view.nagevationContinuar();
+            }else{
+                view.showMensaje("No existen productos a confirmar!");
+            }
+        }
+    }
+
     public void setActualizarProducto(int idPedido, double cantidad ){
         if (view != null) {
 

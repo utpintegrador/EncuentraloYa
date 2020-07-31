@@ -1,5 +1,6 @@
 package com.example.encuentraloya.presenter;
 
+import com.example.encuentraloya.comun.Generico;
 import com.example.encuentraloya.model.Implement.LoginInteractor;
 import com.example.encuentraloya.model.Interfaces.OnLoginFinishedListener;
 import com.example.encuentraloya.view.Interfaces.ILoginView;
@@ -23,20 +24,14 @@ public class LoginPresenter implements OnLoginFinishedListener {
             loginView.showProgress();
         }
 
-        //VALIDACION DE CAMPOS
-        //patron para validar email
-        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher matcher =pattern.matcher(username);
-
         if (username.isEmpty()) {
-            onUsernameError();
-        }else if(!matcher.find()){
-            onUsernameError();
+            onUsernameError("El Correo esta vacío");
+        }else if(!Generico.ValidarMail(username)){
+            onUsernameError("El Correo no es válido");
         }else if (password.isEmpty()){
-             onPasswordError();
+             onPasswordError("La Contraseña esta vacía");
         }else if (password.length()<8){
-            onPasswordError();
+            onPasswordError("La Contraseña carece se seguridad, contacte con el admistrador.");
         }else{
             loginInteractor.login(username, password,recordarCuenta, this);
         }
@@ -56,17 +51,17 @@ public class LoginPresenter implements OnLoginFinishedListener {
     }
 
     @Override
-    public void onUsernameError() {
+    public void onUsernameError(String mensaje) {
         if (loginView != null) {
-            loginView.setUsernameError();
+            loginView.setUsernameError(mensaje);
             loginView.hideProgress();
         }
     }
 
     @Override
-    public void onPasswordError() {
+    public void onPasswordError(String mensaje) {
         if (loginView != null) {
-            loginView.setPasswordError();
+            loginView.setPasswordError(mensaje);
             loginView.hideProgress();
         }
     }

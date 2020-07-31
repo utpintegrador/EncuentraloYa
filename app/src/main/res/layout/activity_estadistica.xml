@@ -44,6 +44,17 @@
         android:layout_below="@+id/header"
         >
 
+        <TextView
+            android:id="@+id/tvTitulo"
+            android:paddingLeft="20dp"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="RESUMEN DE COMPRA DE LOS ÚLTIMOS 5 MESES"
+
+            android:textColor="#0089BA"
+            />
+
         <ProgressBar
             android:padding="70dp"
             android:paddingVertical="20dp"

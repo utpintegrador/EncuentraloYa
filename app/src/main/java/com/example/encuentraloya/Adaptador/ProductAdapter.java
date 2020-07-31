@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.encuentraloya.R;
+import com.example.encuentraloya.comun.Generico;
 import com.example.encuentraloya.entidad.ProductBusinessDto;
 import com.example.encuentraloya.presenter.BuscarProductoPresenter;
 import com.squareup.picasso.Picasso;
@@ -41,7 +42,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
         holder.tv_prodDescription.setText(list_productBusinessDto.get(position).getDescriptionProduct());
         // Precio
         double precio = list_productBusinessDto.get(position).price;
-        holder.tv_prodPrice.setText("S/".concat(Double.toString(precio)));
+        //descuento
+        double descuento = list_productBusinessDto.get(position).getMontoDescuento();
+
+        holder.tv_Descuento.setVisibility(View.GONE);
+        if(descuento>0){
+            double newPrice = Generico.round( precio- descuento,2);
+            holder.tv_prodPrice.setText("S/".concat(Double.toString(newPrice)));
+            holder.tv_Descuento.setText("S/".concat(Double.toString(precio)));
+            holder.tv_Descuento.setVisibility(View.VISIBLE);
+        }else{
+            holder.tv_prodPrice.setText("S/".concat(Double.toString(precio)));
+        }
+
+        //holder.tv_prodPrice.setText("S/".concat(Double.toString(precio)));
         // Url Imagen
         Picasso.with(context).load(list_productBusinessDto.get(position).getUrlImage()).into(holder.iv_prod);
 
@@ -53,7 +67,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
                 presenter.agregarProducto(list_productBusinessDto.get(position).getIdProduct(),
                         1,
                         list_productBusinessDto.get(position).getDescriptionProduct(),
-                        list_productBusinessDto.get(position).getPrice(),
+                         Generico.round(list_productBusinessDto.get(position).getPrice()- list_productBusinessDto.get(position).getMontoDescuento(),2),
                         list_productBusinessDto.get(position).getUrlImage());
 
             }
@@ -74,12 +88,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.GridHold
         private TextView tv_prodDescription;
         private TextView tv_prodPrice;
         private ImageButton btn_agregar;
+        private TextView tv_Descuento;
 
         public GridHolder(View v) {
             super(v);
             iv_prod = (ImageView) v.findViewById(R.id.imageViewProduct);
             tv_prodDescription = (TextView) v.findViewById(R.id.tvDescription);
             tv_prodPrice = (TextView) v.findViewById(R.id.tvPrice);
+            tv_Descuento = (TextView) v.findViewById(R.id.tvPrecioAntiguo);
             btn_agregar =(ImageButton) v.findViewById(R.id.btnAgregar);
         }
     }

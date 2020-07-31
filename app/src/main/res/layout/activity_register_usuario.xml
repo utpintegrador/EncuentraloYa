@@ -20,7 +20,7 @@
             android:layout_gravity="end"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="#354A6B"
+            android:background="#0089BA"
             >
 
         </LinearLayout>
@@ -349,7 +349,7 @@
             android:layout_gravity="end"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="#354A6B"
+            android:background="#0089BA"
             >
             <!--acceder-->
             <TextView

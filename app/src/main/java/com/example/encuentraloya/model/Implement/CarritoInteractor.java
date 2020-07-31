@@ -59,7 +59,11 @@ public class CarritoInteractor {
         return "S/." + String.valueOf(formatter.format(total));
     }
 
-
+    public int getExisteProductos(){
+        PedidoSQLite dbLite = new PedidoSQLite(context);
+        List<ProductDto> lista = dbLite.ListarProductos();
+        return lista.size();
+    }
 
 
 }

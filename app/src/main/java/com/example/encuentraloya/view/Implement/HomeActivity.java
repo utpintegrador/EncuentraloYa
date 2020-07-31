@@ -1,7 +1,13 @@
 package com.example.encuentraloya.view.Implement;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,24 +20,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.example.encuentraloya.Adaptador.CategoriaAdapter;
 import com.example.encuentraloya.R;
+import com.example.encuentraloya.comun.Constantes;
+import com.example.encuentraloya.comun.UbicacionGPS.IMyLocationService;
+import com.example.encuentraloya.comun.UbicacionGPS.Localizacion;
+import com.example.encuentraloya.comun.UbicacionGPS.MyLocationService;
 import com.example.encuentraloya.entidad.CategoriaDto;
 import com.example.encuentraloya.model.Implement.HomeInteractor;
 import com.example.encuentraloya.presenter.HomePresenter;
 import com.example.encuentraloya.view.Interfaces.IHomeView;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IHomeView {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, IHomeView , IMyLocationService {
 
     Button navegation_inicio;
     Button navegation_buscar;
@@ -51,9 +59,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     HomePresenter presenter;
     CategoriaAdapter catAdapter;
 
+    MyLocationService myLocationService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home);
 
         tv_tiendas_cercanas = (TextView)this.findViewById(R.id.tv_tiendas_cercanas);
@@ -62,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         navegation_buscar=(Button) this.findViewById(R.id.btn_buscar);
         navegation_carrito=(Button) this.findViewById(R.id.btn_carrito);
         navegation_perfil =(Button) this.findViewById(R.id.btn_perfil);
+
         navegation_tiendas_cercanas=(RelativeLayout)  this.findViewById(R.id.rl_tiendas_cercanas);
         progressBar =(ProgressBar)  this.findViewById(R.id.progress_home_categoria);
 
@@ -86,6 +98,23 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         presenter = new HomePresenter(this, new HomeInteractor());
 
         presenter.getAllCategoria();
+
+        //myLocationService= new MyLocationService(this,this);
+
+        //INICIALIZA GPS
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,},
+                    1000);
+
+        } else {
+            iniciarLocalizacion();
+        }
+
+
     }
 
     @Override
@@ -118,7 +147,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -156,8 +184,65 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void showCantidadDisponibleTiendas(String mensaje) {
-        tv_tiendas_cercanas.setText(mensaje);
+         tv_tiendas_cercanas.setText(mensaje);
     }
+
+
+    @Override
+    public void showMensajeGPS(String mensaje) {
+
+    }
+
+    @Override
+    public void showCoordanadas(double latitude, double longitude) {
+        Constantes.LATITUD_VALUE = latitude;
+        Constantes.LONGITUD_VALUE = longitude;
+        presenter.getAllCantidadTiendasCercanas();
+        //myLocationService=null;
+    }
+
+
+
+    //GPS
+    private void iniciarLocalizacion() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        Localizacion localizacion = new Localizacion();
+        localizacion.setMainActivity(this, this);
+
+        final boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if(!gpsEnabled) {
+            Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(settingsIntent);
+        }
+
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
+
+        }
+
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, localizacion);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, localizacion);
+
+        //locationText.setText("Localizacion agregada");
+    }
+
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        if(requestCode == 1000) {
+            if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                iniciarLocalizacion();
+                return;
+            }
+        }
+
+    }
+
 
 
 }

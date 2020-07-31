@@ -1,5 +1,6 @@
 package com.example.encuentraloya.presenter;
 
+import com.example.encuentraloya.comun.Generico;
 import com.example.encuentraloya.model.Interfaces.OnRegisterUsuarioFinishedListener;
 import com.example.encuentraloya.model.Implement.RegisterUsuarioInteractor;
 import com.example.encuentraloya.view.Interfaces.IRegisterUsuarioView;
@@ -21,26 +22,23 @@ public class RegisterUsuarioPresenter implements OnRegisterUsuarioFinishedListen
             view.showProgress();
         }
 
-        Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher matcherIsCorreoValido =pattern.matcher(correoElectronioco);
 
         if(nombre.isEmpty()){
-            onNombreeError("Falta completar el nombre");
+            onNombreeError("El Nombre está vacío");
         }else if(apellido.isEmpty()){
-            onApellidoError("Falta completar el apellido");
+            onApellidoError("El Apellido está vacío");
         }else if (correoElectronioco.isEmpty()){
-            onCorreoElectronicoError("Falta completar el correo");
-        }else if(!matcherIsCorreoValido.find()){
-            onCorreoElectronicoError("El correo ingresado no es válido");
+            onCorreoElectronicoError("El Correo esta vacío");
+        }else if(!Generico.ValidarMail(correoElectronioco)){
+            onCorreoElectronicoError("El Correo no es válido");
         }else if(contrasenia.isEmpty()){
-            onContraseniasError("Falta completar la contraseña");
+            onContraseniasError("La Contraseña esta vacía");
         }else if(contrasenia.length()<8){
-            onContraseniasError("La longitud de la contraseña debe ser mayo o igual a 8");
+            onContraseniasError("La Contraseña no es muy segura");
         }else if(confirmarContrasenia.isEmpty()) {
-            onConfirmarContraseniasError("Falta confirmar la contraseña");
+            onConfirmarContraseniasError("La Contraseña esta vacía");
         }else if(!contrasenia.equals(confirmarContrasenia)){
-            onConfirmarContraseniasError("La contraseña no coincide");
+            onConfirmarContraseniasError("La Contraseña no coincide");
         }else{
             registerInteractor.registrar(nombre, apellido, correoElectronioco, contrasenia, this);
         }

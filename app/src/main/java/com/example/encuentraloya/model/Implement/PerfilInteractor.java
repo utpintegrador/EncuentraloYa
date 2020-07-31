@@ -38,9 +38,11 @@ public class PerfilInteractor {
 
     public void SubirImagen(String rutaArchivo, final OnPerfilFinishedListener listener){
         String idUsuarioAutenticado =  String.valueOf(SharedPreferencesManager.getIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO));
+
         File file = new File(rutaArchivo);
         RequestBody photoContent = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         RequestBody idUsuario = RequestBody.create(MediaType.parse("text/plain"), idUsuarioAutenticado);
+
         MultipartBody.Part photo = MultipartBody.Part.createFormData("Archivo", file.getName(), photoContent);
         usuarioService = ApiUtils.getAPIUsuarioService();
 
@@ -55,7 +57,7 @@ public class PerfilInteractor {
 
            @Override
            public void onFailure(Call<UsuarioSubirImagenResponseDto> call, Throwable t) {
-               listener.onMensaje("");
+               listener.onMensaje(t.getMessage());
            }
        });
 

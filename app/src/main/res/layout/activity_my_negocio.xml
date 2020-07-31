@@ -9,27 +9,30 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
+        android:background="#0089BA"
         android:gravity="center" >
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="#0089BA"
-            >
+            android:layout_height="match_parent"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:text="MI NEGOCIO"
+            android:gravity="center"
+            />
 
-            <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="45dp"
-                android:layout_height="60dp"
-                android:background="@drawable/ic_izquierda"
-                android:backgroundTint="#fff"
-                />
-        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="45dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_izquierda"
+            android:backgroundTint="#fff"
+            />
+
 
 
     </RelativeLayout>
@@ -51,10 +54,10 @@
             android:paddingLeft="20dp"
             android:gravity="center_vertical|center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="MI NEGOCIO"
-
+            android:layout_height="wrap_content"
+            android:text=""
             android:textColor="#0089BA"
+
             />
         <LinearLayout
             android:layout_below="@+id/tvTitulo"
@@ -64,6 +67,7 @@
             android:orientation="vertical"
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
+
             >
 
             <ImageView

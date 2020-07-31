@@ -24,13 +24,16 @@
             android:layout_weight="1"
             >
 
-            <ImageView
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/imgPerfil"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@drawable/img_perfil"
-                android:visibility="visible"
-                ></ImageView>
+                app:civ_border_width="0dp"
+                app:civ_border_color="#FF000000"/>
+
             <ProgressBar
                 android:layout_gravity="center"
                 android:id="@+id/progress_perfil"
@@ -174,7 +177,7 @@
                     android:drawableLeft="@drawable/ic_lista"
                     android:drawableTint="#0089BA"
                     android:drawablePadding="7dp"
-                    android:text="Mis Pedidos"
+                    android:text="Mis Compras"
                     android:textColor="#797D7F"
                     />
                 <ImageButton
@@ -316,9 +319,9 @@
                 android:drawableTop="@drawable/ic_home"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:drawableTint="#fff"
+                android:drawableTint="#80DEEA"
                 android:text="Incio"
-                android:textColor="#fff"
+                android:textColor="#80DEEA"
                 android:layout_width="fill_parent" />
 
 
@@ -364,9 +367,9 @@
                 android:drawableTop="@drawable/ic_usuario"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:drawableTint="#80DEEA"
+                android:drawableTint="#fff"
                 android:text="Perfil"
-                android:textColor="#80DEEA"
+                android:textColor="#fff"
                 android:layout_width="fill_parent" />
 
 

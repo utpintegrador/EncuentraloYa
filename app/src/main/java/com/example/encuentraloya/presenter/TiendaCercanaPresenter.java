@@ -18,11 +18,11 @@ public class TiendaCercanaPresenter implements OnTiendasCercanasFinishedListener
         this.interactor = interactor;
     }
 
-    public void getAllTiendasCercanas(double longitud, double latitud){
+    public void getAllTiendasCercanas(){
         if (view != null) {
             view.showProgress();
         }
-        interactor.getAllTiendasCercanas(longitud,latitud, this);
+        interactor.getAllTiendasCercanas( this);
     }
 
     @Override

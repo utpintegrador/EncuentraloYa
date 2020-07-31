@@ -37,6 +37,11 @@ public class NegocioDto {
     @Expose
     private String telefono;
 
+    @SerializedName("DistanciaKm")
+    @Expose
+    private Double  distanciaKm;
+
+
     public Integer getIdNegocio() {
         return idNegocio;
     }
@@ -123,5 +128,14 @@ public class NegocioDto {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+
+    public Double getDistanciaKm() {
+        return distanciaKm;
+    }
+
+    public void setDistanciaKm(Double distanciaKm) {
+        this.distanciaKm = distanciaKm;
     }
 }

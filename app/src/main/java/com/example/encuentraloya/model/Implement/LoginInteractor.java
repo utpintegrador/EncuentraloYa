@@ -1,10 +1,13 @@
 package com.example.encuentraloya.model.Implement;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.encuentraloya.Servicios.APIService;
 import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.Servicios.INegocioService;
 import com.example.encuentraloya.Servicios.IUbicacionNegocioService;
 import com.example.encuentraloya.comun.Constantes;
+import com.example.encuentraloya.comun.PedidoSQLite;
 import com.example.encuentraloya.comun.SharedPreferencesManager;
 import com.example.encuentraloya.entidad.NegocioDto;
 import com.example.encuentraloya.entidad.Request.LoginInformationRequest;
@@ -40,26 +43,29 @@ public class LoginInteractor {
                     LoginInformationResponse loginResponse = response.body();
                     if (loginResponse.getToken() != null){
 
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_TOKEN,loginResponse.getToken());
-                        SharedPreferencesManager.setIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO,loginResponse.getIdUsuario());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRE,loginResponse.getNombre());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_APELLIDO,loginResponse.getApellido());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_CORREOELECTRONICO,loginResponse.getCorreoElectronico());
-                        SharedPreferencesManager.setStringValue(Constantes.PREF_URLIMAGENUSUARIO,loginResponse.getUrlImagen());
-                        obtenerNegocioByIdUsuario(loginResponse.getIdUsuario(),listener);
+                            SharedPreferencesManager.setStringValue(Constantes.PREF_TOKEN,loginResponse.getToken());
+                            SharedPreferencesManager.setIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO,loginResponse.getIdUsuario());
+                            SharedPreferencesManager.setStringValue(Constantes.PREF_NOMBRE,loginResponse.getNombre());
+                            SharedPreferencesManager.setStringValue(Constantes.PREF_APELLIDO,loginResponse.getApellido());
+                            SharedPreferencesManager.setStringValue(Constantes.PREF_CORREOELECTRONICO,loginResponse.getCorreoElectronico());
+                            SharedPreferencesManager.setStringValue(Constantes.PREF_URLIMAGENUSUARIO,loginResponse.getUrlImagen());
+                            obtenerNegocioByIdUsuario(loginResponse.getIdUsuario(),listener);
+
+
+
                         //listener.onSuccess();
                     }else{
                         listener.onError("El usuario ingresado no es válido");
                     }
 
                 }else{
-                    listener.onError(response.message().toString());
+                    listener.onError("Intento de inicio de sesión invalido");
                 }
             }
 
             @Override
             public void onFailure(Call<LoginInformationResponse> call, Throwable t) {
-                listener.onError(t.getMessage().toString());
+                listener.onError(t.getLocalizedMessage().toString());
             }
         });
 
@@ -69,6 +75,7 @@ public class LoginInteractor {
     }
 
     public void obtenerNegocioByIdUsuario(int idUsuario,final OnLoginFinishedListener listener){
+
         negocioService = ApiUtils.getAPIServiceNegocio();
         negocioService.ObtenerPorIdUsuario(idUsuario).enqueue(new Callback<ObtenerNegociosResponse>() {
             @Override

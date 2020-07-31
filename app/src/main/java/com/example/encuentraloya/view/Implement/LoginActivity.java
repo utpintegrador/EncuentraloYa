@@ -1,9 +1,11 @@
 package com.example.encuentraloya.view.Implement;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
     private TextView link_crear_cuenta;
     private CheckBox recordar_cuenta;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
         progressBar = (ProgressBar) this.findViewById(R.id.progress_login);
         link_recuperar_cuenta = (TextView) this.findViewById(R.id.tv_login_olvidar_pwd);
         link_crear_cuenta =(TextView) this.findViewById(R.id.tv_login_crear_cuenta);
-        recordar_cuenta = (CheckBox) this.findViewById(R.id.chk_login_recordar);
+        //recordar_cuenta = (CheckBox) this.findViewById(R.id.chk_login_recordar);
 
         //set listener
         btnLogin.setOnClickListener(this);
@@ -59,7 +62,9 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_login_login:
-                presenter.validateCredentials(editUser.getText().toString(), editPass.getText().toString(),recordar_cuenta.isChecked() );
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editPass.getWindowToken(), 0);
+                presenter.validateCredentials(editUser.getText().toString(), editPass.getText().toString(), true );
                 break;
             case R.id.tv_login_olvidar_pwd:
                 startActivity(new Intent(LoginActivity.this,RecoverAccountActivity.class));
@@ -90,13 +95,13 @@ public class LoginActivity extends AppCompatActivity implements ILoginView, View
     }
 
     @Override
-    public void setUsernameError() {
-        editPass.setError(getString(R.string.username_error));
+    public void setUsernameError(String mensaje) {
+        editPass.setError(mensaje);
     }
 
     @Override
-    public void setPasswordError() {
-        editPass.setError(getString(R.string.password_error));
+    public void setPasswordError(String mensaje) {
+        editPass.setError(mensaje);
     }
 
     @Override

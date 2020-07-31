@@ -13,6 +13,7 @@ public interface ICarritoView {
     void showListaCarrito( List<ProductDto> lista);
     void showTotal(String total);
     void setOperation(int operation, int idPedido, double cantidad);
+    void nagevationContinuar();
 
 
 }

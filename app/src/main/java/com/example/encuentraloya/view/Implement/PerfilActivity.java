@@ -199,6 +199,7 @@ public class PerfilActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void showNavegationLogin() {
         startActivity(new Intent(this,LoginActivity.class));
+        finish();
     }
 
     @Override

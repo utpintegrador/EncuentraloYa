@@ -6,7 +6,9 @@ import android.util.Log;
 
 import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.Servicios.IProductService;
+import com.example.encuentraloya.comun.Constantes;
 import com.example.encuentraloya.comun.PedidoSQLite;
+import com.example.encuentraloya.comun.SharedPreferencesManager;
 import com.example.encuentraloya.entidad.ProductBusinessDto;
 import com.example.encuentraloya.entidad.Request.ObtenerProdByNegocioRequest;
 import com.example.encuentraloya.entidad.Response.ObtenerProdByNegocioResponse;
@@ -31,8 +33,10 @@ public class BuscarProductoInteractor {
                                final Integer idCategory, final Integer numberPage, final Integer totalRecords, final String orderColumn,
                                final String orderDirection, final OnSearchProductFinishedListener listener) {
 
+        int idNegocio = SharedPreferencesManager.getIntValue(Constantes.PREF_SELECTED_ID_NEGOCIO);
+
         ObtenerProdByNegocioRequest obtenerProdByNegocioRequest = new ObtenerProdByNegocioRequest();
-        obtenerProdByNegocioRequest.setIdBusiness(idBusiness);
+        obtenerProdByNegocioRequest.setIdBusiness(idNegocio);
         obtenerProdByNegocioRequest.setSearch(search);
         obtenerProdByNegocioRequest.setIdState(idState);
         obtenerProdByNegocioRequest.setIdMoney(idMoney);
@@ -67,6 +71,7 @@ public class BuscarProductoInteractor {
     public void agregarProducto(int idProducto, double cantidad, String descripcion, double precio, String urlImagen,
                                 final OnSearchProductFinishedListener listener ){
         PedidoSQLite db = new PedidoSQLite(context);
+
        if(db.agregarProducto(idProducto,cantidad,descripcion,precio,urlImagen)){
             listener.onSuccessAddProducto("El producto ha sido agregado");
         }else{

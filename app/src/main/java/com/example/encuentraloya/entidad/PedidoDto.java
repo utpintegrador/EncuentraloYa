@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+
 public class PedidoDto {
     @SerializedName("IdPedido")
     @Expose
@@ -47,9 +48,25 @@ public class PedidoDto {
     @Expose
     private Integer idNegocioComprador;
 
+    @SerializedName("IdUsuarioRegistro")
+    @Expose
+    private Integer idUsuarioRegistro;
+
+    @SerializedName("NumeroCelular")
+    @Expose
+    private String numeroCelular;
+
+    @SerializedName("Observaciones")
+    @Expose
+    private String observaciones;
+
     @SerializedName("ListaDetalle")
     @Expose
     private List<DetallePedidoDto> listaDetalle = null;
+
+    @SerializedName("ListaPedidoDetalle")
+    @Expose
+    private List<DetallePedidoDto> listaPedidoDetalle = null;
 
     public Integer getIdPedido() {
         return idPedido;
@@ -162,5 +179,37 @@ public class PedidoDto {
 
     public void setListaDetalle(List<DetallePedidoDto> listaDetalle) {
         this.listaDetalle = listaDetalle;
+    }
+
+    public Integer getIdUsuarioRegistro() {
+        return idUsuarioRegistro;
+    }
+
+    public void setIdUsuarioRegistro(Integer idUsuarioRegistro) {
+        this.idUsuarioRegistro = idUsuarioRegistro;
+    }
+
+    public List<DetallePedidoDto> getListaPedidoDetalle() {
+        return listaPedidoDetalle;
+    }
+
+    public void setListaPedidoDetalle(List<DetallePedidoDto> listaPedidoDetalle) {
+        this.listaPedidoDetalle = listaPedidoDetalle;
+    }
+
+    public String getNumeroCelular() {
+        return numeroCelular;
+    }
+
+    public void setNumeroCelular(String numeroCelular) {
+        this.numeroCelular = numeroCelular;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }

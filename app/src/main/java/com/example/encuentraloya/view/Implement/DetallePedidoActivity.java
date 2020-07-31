@@ -56,8 +56,8 @@ public class DetallePedidoActivity extends AppCompatActivity implements IDetalle
         tvTotal = (TextView) findViewById(R.id.tvTotal);
 
         img_alert = (ImageView)findViewById(R.id.imageViewAlerta);
-        img_cancel = (ImageView)findViewById(R.id.imageViewCheck);
-        img_check = (ImageView)findViewById(R.id.imageViewCancel);
+        img_cancel = (ImageView)findViewById(R.id.imageViewCancel);
+        img_check = (ImageView)findViewById(R.id.imageViewCheck);
 
         btn_back = (ImageButton)findViewById(R.id.btn_back);
 
@@ -120,7 +120,7 @@ public class DetallePedidoActivity extends AppCompatActivity implements IDetalle
 
         if (descripcionEstado.equals("Generado")){
             img_alert.setVisibility(View.VISIBLE);
-        }else if (descripcionEstado.equals("Rechazado")){
+        }else if (descripcionEstado.equals("Rechazado") || descripcionEstado.equals("Cancelado")){
             img_cancel.setVisibility(View.VISIBLE);
         }else{
             img_check.setVisibility(View.VISIBLE);

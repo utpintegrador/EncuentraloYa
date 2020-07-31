@@ -108,7 +108,7 @@ public class MyNegocioInteractor {
 
         if (getIdNegocioUbicacionSharedPreferences()!= 0){ //caso este almacenado en sharedpreferences
 
-            String tituloNegocio = SharedPreferencesManager.getStringValue(Constantes.PREF_TITULO_NEGOCIO);
+            String tituloNegocio = SharedPreferencesManager.getStringValue(Constantes.PREF_NOMBRENEGOCIO);
             double latitud = Double.parseDouble(SharedPreferencesManager.getStringValue(Constantes.PREF_LATITUD_NEGOCIO));
             double longitud = Double.parseDouble(SharedPreferencesManager.getStringValue(Constantes.PREF_LONGITUD_NEGOCIO));
             listener.onSuccesGetDetalleTiendas(tituloNegocio,"",latitud,longitud);

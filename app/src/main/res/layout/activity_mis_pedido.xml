@@ -22,7 +22,7 @@
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:text="MIS PEDIDOS"
+                android:text="MIS COMPRAS"
                 android:gravity="center"
                 />
 

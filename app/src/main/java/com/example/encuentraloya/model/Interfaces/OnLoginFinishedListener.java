@@ -1,9 +1,9 @@
 package com.example.encuentraloya.model.Interfaces;
 
 public interface OnLoginFinishedListener {
-    void onUsernameError();
+    void onUsernameError(String mensaje);
 
-    void onPasswordError();
+    void onPasswordError(String mensaje);
 
     void onSuccess();
 

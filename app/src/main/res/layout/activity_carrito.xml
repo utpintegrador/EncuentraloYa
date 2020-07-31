@@ -140,6 +140,7 @@
 
             <!--INICIO-->
             <Button
+                android:id="@+id/btn_inicio"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -155,6 +156,7 @@
 
             <!--BUSCAR-->
             <Button
+                android:id="@+id/btn_buscar"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -170,6 +172,7 @@
 
             <!--CARRITO-->
             <Button
+                android:id="@+id/btn_carrito"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -185,6 +188,7 @@
 
             <!--PERFIL-->
             <Button
+                android:id="@+id/btn_perfil"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"

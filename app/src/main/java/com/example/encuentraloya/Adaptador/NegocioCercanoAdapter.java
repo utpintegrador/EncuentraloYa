@@ -15,6 +15,7 @@ import com.example.encuentraloya.comun.Generico;
 import com.example.encuentraloya.comun.SharedPreferencesManager;
 import com.example.encuentraloya.entidad.NegocioDto;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class NegocioCercanoAdapter extends RecyclerView.Adapter<NegocioCercanoAdapter.ViewHolder>{
@@ -23,7 +24,6 @@ public class NegocioCercanoAdapter extends RecyclerView.Adapter<NegocioCercanoAd
     INegocioCercanoAdapterView negocioCercanoAdapterView;
 
     static  int itemSelected=0;
-
 
     public NegocioCercanoAdapter(Context context, List<NegocioDto> lista,  INegocioCercanoAdapterView negocioCercanoAdapterView) {
         this.context = context;
@@ -55,16 +55,21 @@ public class NegocioCercanoAdapter extends RecyclerView.Adapter<NegocioCercanoAd
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        DecimalFormat df = new DecimalFormat("#");
 
         String nombreNegocio = lista.get(position).getNombre();
-        int distance = Generico.calculateDistanceInKilometer(Constantes.LATITUD_VALUE, Constantes.LONGITUD_VALUE, lista.get(position).getLatitud(), lista.get(position).getLatitud());
-        String distancia = "" + distance + " KM";
+        //int distance = Generico.calculateDistanceInKilometer(Constantes.LATITUD_VALUE, Constantes.LONGITUD_VALUE, lista.get(position).getLatitud(), lista.get(position).getLatitud());
+        //String distancia = "" + distance + " KM";
+        double kmdistancia = Generico.round(lista.get(position).getDistanciaKm(),2);
+
+        String distancia = "" + kmdistancia + " KM";
 
         // ASIGNACIÓN DE VALORES
         holder.tvTiendaNombre.setText(nombreNegocio);
         holder.tvDistancia.setText(distancia);
 
         //EVENTO CLICK
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,10 +84,13 @@ public class NegocioCercanoAdapter extends RecyclerView.Adapter<NegocioCercanoAd
 
         if( itemSelected == position){
             holder.img_selected.setVisibility(View.VISIBLE);
+
             negocioCercanoAdapterView.updateNegocioSelected(lista.get(position).getNombre(), holder.tvDistancia.getText().toString());
         }else{
             holder.img_selected.setVisibility(View.GONE);
+
         }
+
 
     }
 

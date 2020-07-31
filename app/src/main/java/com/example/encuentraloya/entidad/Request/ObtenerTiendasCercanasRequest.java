@@ -25,6 +25,13 @@ public class ObtenerTiendasCercanasRequest {
     @Expose
     private String direccionOrden;
 
+    @SerializedName("UbicacionLongitudInicio")
+    @Expose
+    private double ubicacionLongitudInicio;
+    @SerializedName("UbicacionLatitudInicio")
+    @Expose
+    private double ubicacionLatitudInicio;
+
     public String getBuscar() {
         return buscar;
     }
@@ -81,4 +88,19 @@ public class ObtenerTiendasCercanasRequest {
         this.direccionOrden = direccionOrden;
     }
 
+    public double getUbicacionLongitudInicio() {
+        return ubicacionLongitudInicio;
+    }
+
+    public void setUbicacionLongitudInicio(double ubicacionLongitudInicio) {
+        this.ubicacionLongitudInicio = ubicacionLongitudInicio;
+    }
+
+    public double getUbicacionLatitudInicio() {
+        return ubicacionLatitudInicio;
+    }
+
+    public void setUbicacionLatitudInicio(double ubicacionLatitudInicio) {
+        this.ubicacionLatitudInicio = ubicacionLatitudInicio;
+    }
 }

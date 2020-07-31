@@ -13,6 +13,7 @@ import com.example.encuentraloya.R;
 import com.example.encuentraloya.entidad.CategoriaDto;
 import com.example.encuentraloya.entidad.ProductDto;
 import com.example.encuentraloya.view.Interfaces.ICarritoView;
+import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -46,7 +47,8 @@ public class CarritoItemAdaptador extends RecyclerView.Adapter<CarritoItemAdapta
         holder.btnCantidad.setText( String.valueOf(entity.getCantidad()));
         holder.textPriceUnit.setText("Precio Unitario: " + String.valueOf(entity.getPrice()));
         holder.textPrice.setText("S/." + String.valueOf( formatter.format(entity.getPrice()*entity.getCantidad())));
-
+        //holder.img_producto.
+        Picasso.with(context).load(entity.getUrlImage()).into(holder.img_producto);
 
         holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override

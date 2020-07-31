@@ -53,6 +53,11 @@ public class ProductBusinessDto {
     @Expose
     public Integer amountImages;
 
+    @SerializedName("MontoDescuento")
+    @Expose
+    private Integer montoDescuento;
+
+
     public Integer getIdProduct() {
         return idProduct;
     }
@@ -147,5 +152,13 @@ public class ProductBusinessDto {
 
     public void setAmountImages(Integer amountImages) {
         this.amountImages = amountImages;
+    }
+
+    public Integer getMontoDescuento() {
+        return montoDescuento;
+    }
+
+    public void setMontoDescuento(Integer montoDescuento) {
+        this.montoDescuento = montoDescuento;
     }
 }

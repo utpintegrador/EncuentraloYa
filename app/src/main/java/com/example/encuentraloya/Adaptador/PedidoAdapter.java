@@ -47,7 +47,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.ViewHolder
 
         if(estado.equals("Generado")){
             holder.img_alert.setVisibility(View.VISIBLE);
-        }else if (estado.equals("Rechazado")){
+        }else if (estado.equals("Rechazado") || estado.equals("Cancelado") ){
             holder.img_cancel.setVisibility(View.VISIBLE);
         }else  {
             holder.img_check.setVisibility(View.VISIBLE);

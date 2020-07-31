@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.encuentraloya.R;
 import com.example.encuentraloya.model.Implement.RegisterUsuarioInteractor;
@@ -109,7 +108,10 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
 
     @Override
     public void navigateToHome() {
-        startActivity(new Intent(RegisterUsuarioActivity.this,HomeActivity.class));
+        Intent intent = new Intent(this, MensajeConfirmacionActivity.class);
+        intent.putExtra("operacion", "confirmacion_creacion_cuenta");
+        this.startActivity(intent);
+        //startActivity(new Intent(RegisterUsuarioActivity.this, MensajeConfirmacionActivity.class));
         finish();
     }
 

@@ -24,9 +24,14 @@ public class HomePresenter implements IOnHomeFinishedListener {
         }
         interactor.getAllCategoria(this);
         interactor.getAllGastoUltimos_5Meses(this);
-        interactor.getNeogcioCercano(this);
     }
 
+    public void getAllCantidadTiendasCercanas(){
+        if (view != null) {
+            //view.showProgress();
+        }
+        interactor.getNeogcioCercano(this);
+    }
 
     @Override
     public void onCategoriaSucces(List<CategoriaDto> listaCategoria) {

@@ -18,9 +18,14 @@ import retrofit2.Response;
 public class TiendasCercanasInteractor {
     INegocioService negocioService;
 
-    public void getAllTiendasCercanas(final double longitud, final double latitud, final OnTiendasCercanasFinishedListener listener ){
+    public void getAllTiendasCercanas(final OnTiendasCercanasFinishedListener listener ){
+
         ObtenerTiendasCercanasRequest entity = new ObtenerTiendasCercanasRequest();
         entity.setIdUsuario(SharedPreferencesManager.getIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO));
+        entity.setBuscar("");
+        entity.setUbicacionLatitudInicio(Constantes.LATITUD_VALUE);
+        entity.setUbicacionLongitudInicio(Constantes.LONGITUD_VALUE);
+        entity.setCantidadKilometros(1000);
 
         negocioService = ApiUtils.getAPIServiceNegocio();
         negocioService.ObtenerNegociosCercanos(entity).enqueue(new Callback<ObtenerTiendasCercanasResponse>() {

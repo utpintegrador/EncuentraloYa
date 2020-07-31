@@ -20,6 +20,9 @@ public class DetallePedidoDto {
     @Expose
     private String urlImagenProducto;
 
+    @SerializedName("IdProducto")
+    @Expose
+    private Integer idProducto;
 
     public Integer getIdPedidoDetalle() {
         return idPedidoDetalle;
@@ -59,5 +62,13 @@ public class DetallePedidoDto {
 
     public void setUrlImagenProducto(String urlImagenProducto) {
         this.urlImagenProducto = urlImagenProducto;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 }

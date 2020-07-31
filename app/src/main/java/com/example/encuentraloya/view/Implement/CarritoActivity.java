@@ -30,10 +30,20 @@ public class CarritoActivity extends AppCompatActivity implements ICarritoView ,
     ProgressBar progress_carrito;
     Button btn_continuar;
 
+    Button navegation_inicio;
+    Button navegation_buscar;
+    Button navegation_carrito;
+    Button navegation_perfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito);
+
+        navegation_inicio =(Button) this.findViewById(R.id.btn_inicio);
+        navegation_buscar=(Button) this.findViewById(R.id.btn_buscar);
+        navegation_carrito=(Button) this.findViewById(R.id.btn_carrito);
+        navegation_perfil =(Button) this.findViewById(R.id.btn_perfil);
 
         tv_total= (TextView)findViewById(R.id.tv_total);
         progress_carrito = (ProgressBar) findViewById(R.id.progress_carrito);
@@ -43,6 +53,11 @@ public class CarritoActivity extends AppCompatActivity implements ICarritoView ,
         rvItem.setHasFixedSize(true);
         rvItem.setLayoutManager(layoutManager);
 
+        //set listener
+        navegation_inicio.setOnClickListener(this);
+        navegation_buscar.setOnClickListener(this);
+        navegation_carrito.setOnClickListener(this);
+        navegation_perfil.setOnClickListener(this);
         btn_continuar.setOnClickListener(this);
 
         presenter = new CarritoPresenter(this ,new CarritoInteractor(this));
@@ -97,11 +112,32 @@ public class CarritoActivity extends AppCompatActivity implements ICarritoView ,
     }
 
     @Override
+    public void nagevationContinuar() {
+        startActivity(new Intent(this,ConfirmarPedidoActivity.class));
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_continuar:
-                startActivity(new Intent(this,ConfirmarPedidoActivity.class));
-
+                presenter.moveContinuar();
+                //startActivity(new Intent(this,ConfirmarPedidoActivity.class));
+                break;
+            case R.id.btn_inicio:
+                startActivity(new Intent(this,HomeActivity.class));
+                finish();
+                break;
+            case R.id.btn_buscar:
+                startActivity(new Intent(this,BuscarProductoActivity.class));
+                finish();
+                break;
+            case R.id.btn_carrito:
+                startActivity(new Intent(this,CarritoActivity.class));
+                finish();
+                break;
+            case R.id.btn_perfil:
+                startActivity(new Intent(this,PerfilActivity.class));
+                finish();
                 break;
         }
     }

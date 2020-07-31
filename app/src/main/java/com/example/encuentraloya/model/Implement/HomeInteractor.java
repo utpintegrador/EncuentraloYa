@@ -4,13 +4,17 @@ package com.example.encuentraloya.model.Implement;
 import com.example.encuentraloya.Servicios.APIService;
 import com.example.encuentraloya.Servicios.ApiUtils;
 import com.example.encuentraloya.Servicios.INegocioService;
+import com.example.encuentraloya.Servicios.IPedidoService;
 import com.example.encuentraloya.comun.Constantes;
 import com.example.encuentraloya.comun.SharedPreferencesManager;
 import com.example.encuentraloya.entidad.CategoriaDto;
+import com.example.encuentraloya.entidad.DataGraficoDto;
 import com.example.encuentraloya.entidad.NegocioDto;
 import com.example.encuentraloya.entidad.Request.CategoriaRequest;
+import com.example.encuentraloya.entidad.Request.GraficoCompraRequest;
 import com.example.encuentraloya.entidad.Request.ObtenerTiendasCercanasRequest;
 import com.example.encuentraloya.entidad.Response.CategoriaResponse;
+import com.example.encuentraloya.entidad.Response.GraficoCompraResponse;
 import com.example.encuentraloya.entidad.Response.ObtenerTiendasCercanasResponse;
 import com.example.encuentraloya.model.Interfaces.IOnHomeFinishedListener;
 import com.github.mikephil.charting.data.BarEntry;
@@ -25,6 +29,8 @@ import retrofit2.Response;
 public class HomeInteractor {
     private APIService mAPIService;
     private INegocioService negocioService;
+    private IPedidoService pedidoService;
+
 
     public void getAllCategoria(final IOnHomeFinishedListener listener){
 
@@ -35,8 +41,6 @@ public class HomeInteractor {
         entity.setDireccionOrden("");
         entity.setIdEstado(0);
         entity.setNumeroPagina(0);
-
-
 
         mAPIService = ApiUtils.getAPIService();
 
@@ -65,23 +69,52 @@ public class HomeInteractor {
 
     public void getAllGastoUltimos_5Meses(final IOnHomeFinishedListener listener){
 
-        final int[] a = {5,2,10,4,7,8,13};
-        final String[] b= {"January","February","March","April","May","June","Jully"};
-        final ArrayList<BarEntry> entries = new ArrayList<>();
-        final ArrayList<String> labels = new ArrayList<String>();
+        GraficoCompraRequest entity = new GraficoCompraRequest();
+        entity.setCantidadMesesAtras(5);
+        entity.setIdUsuario(SharedPreferencesManager.getIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO));
 
-        for(int i=0 ; i<5;i++){
-            entries.add(new BarEntry(a[i],i));
-            labels.add(b[i]);
-        }
+        pedidoService = ApiUtils.getAPIPedidoService();
+        pedidoService.ObtenerResumenCompras(entity).enqueue(new Callback<GraficoCompraResponse>() {
+            @Override
+            public void onResponse(Call<GraficoCompraResponse> call, Response<GraficoCompraResponse> response) {
+                ArrayList<BarEntry> entries = new ArrayList<>();
+                ArrayList<String> labels = new ArrayList<String>();
 
-        listener.onGastoUltimosMeses(entries,labels);
+                if(response.isSuccessful() && response.body().getProcesadoOk()==Constantes.SUCCESS_RESULT){
+                    if(response.body().getCuerpo().size()>0){
+                        int position=0;
+                        for (DataGraficoDto ety: response.body().getCuerpo()) {
+                            float value = (float) Float.parseFloat(ety.getTotal().toString());
+                            entries.add(new BarEntry(value,position)); //valores grafico
+                            labels.add(ety.getNombreMes() + " " + ety.getAnio()); // etiqueta
+                            position++;
+                        }
+                        listener.onGastoUltimosMeses(entries,labels);
+                    }
+                }else{
+                    listener.onGastoUltimosMeses(entries,labels);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GraficoCompraResponse> call, Throwable t) {
+
+            }
+        });
+
+
     }
 
     public void getNeogcioCercano(final IOnHomeFinishedListener listener){
+        //ID NEGOCIO SELECCIONADO POR DEFECTO
         final int idNegocio = SharedPreferencesManager.getIntValue(Constantes.PREF_SELECTED_ID_NEGOCIO);
+
         ObtenerTiendasCercanasRequest entity = new ObtenerTiendasCercanasRequest();
         entity.setIdUsuario(SharedPreferencesManager.getIntValue(Constantes.PREF_IDUSUARIOAUTENTICADO));
+        entity.setBuscar("");
+        entity.setUbicacionLatitudInicio(Constantes.LATITUD_VALUE);
+        entity.setUbicacionLongitudInicio(Constantes.LONGITUD_VALUE);
+        entity.setCantidadKilometros(1000);
 
         negocioService = ApiUtils.getAPIServiceNegocio();
         negocioService.ObtenerNegociosCercanos(entity).enqueue(new Callback<ObtenerTiendasCercanasResponse>() {
@@ -91,7 +124,7 @@ public class HomeInteractor {
                     List<NegocioDto> lista = response.body().getCuerpo();
 
                     if(lista.size()>0){ //si existe datos
-                        boolean isEncontrado = false;
+                        boolean isEncontrado = false;  //
 
                         if(idNegocio!=0){
                             for (NegocioDto entity: lista ){
@@ -110,7 +143,7 @@ public class HomeInteractor {
                         //System.out.println("IDNEGOCIO: "+SharedPreferencesManager.getIntValue(Constantes.PREF_SELECTED_ID_NEGOCIO));
                     }
 
-                    listener.onCantidadDisponibleTiendas(lista.size());
+                    listener.onCantidadDisponibleTiendas(lista.size()); //RETORNO LA CANTIDAD DE TIENDAS CERCANAS
 
 
                 }
