@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Implement.CarritoActivity">
+
+
+
+    <!-- HEADER MENU-->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+
+            >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="CARRITO"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- ITEMS -->
+    <RelativeLayout
+        android:id="@+id/items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/body_sub"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:overScrollMode="never"
+            android:visibility="visible"
+            ></android.support.v7.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/progress_carrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            />
+
+
+    </RelativeLayout>
+
+    <!-- SUB TOTAL -->
+    <RelativeLayout
+        android:id="@+id/body_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:layout_marginBottom="5dp"
+        >
+
+        <View style="@style/Seperator"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/ed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOTAL"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/ed_title"
+            />
+
+        <Button
+            android:id="@+id/btn_continuar"
+            android:layout_marginTop="12dp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_button_border_test"
+            android:text="Continuar"
+            android:textColor="#ffffff"
+            android:padding="10dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            />
+
+
+    </RelativeLayout>
+
+    <!-- FOOTER MENU-->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+            <!--INICIO-->
+            <Button
+                android:id="@+id/btn_inicio"
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_home"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
+                android:text="Incio"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+            <!--BUSCAR-->
+            <Button
+                android:id="@+id/btn_buscar"
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_buscar"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA "
+                android:text="Buscar"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+            <!--CARRITO-->
+            <Button
+                android:id="@+id/btn_carrito"
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_shopping"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#fff"
+                android:text="Carrito"
+                android:textColor="#fff"
+                android:layout_width="fill_parent" />
+
+
+            <!--PERFIL-->
+            <Button
+                android:id="@+id/btn_perfil"
+                android:textAllCaps="false"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:background="#0089BA"
+                android:drawableTop="@drawable/ic_usuario"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawableTint="#80DEEA"
+                android:text="Perfil"
+                android:textColor="#80DEEA"
+                android:layout_width="fill_parent" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

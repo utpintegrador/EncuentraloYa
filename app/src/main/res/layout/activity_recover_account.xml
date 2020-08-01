@@ -20,7 +20,7 @@
             android:layout_gravity="end"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="#354A6B"
+            android:background="#0089BA"
             >
 
         </LinearLayout>
@@ -85,7 +85,7 @@ pueda actualizar su información."
                     android:id="@+id/imageView2"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icono_mail"
+                    app:srcCompat="@drawable/icono_mail"
                     android:layout_gravity="center"
                     android:tint="#888585"
                     android:layout_weight="1"
@@ -160,7 +160,7 @@ pueda actualizar su información."
             android:layout_gravity="end"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="#354A6B"
+            android:background="#0089BA"
             >
             <!-- acceder-->
             <TextView

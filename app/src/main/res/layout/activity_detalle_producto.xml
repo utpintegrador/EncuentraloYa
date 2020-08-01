@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.Implement.DetalleProductoActivity">
+
+    <!-- HEADER MENU-->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="#0089BA"
+            >
+
+            <ImageButton
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:background="@drawable/ic_izquierda"
+                android:backgroundTint="#fff"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <!-- producto imagen -->
+    <RelativeLayout
+        android:id="@+id/body_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_above="@id/body_3"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="LECHE GLORIA"
+                android:textColor="#0089BA"
+                android:textSize="22dp" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="280dp"
+                android:src="@drawable/leche_template"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--Detalle de Producto-->
+    <RelativeLayout
+        android:id="@+id/body_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/footer"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:background="#E5E7E9"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Descripción"
+                    android:textColor="#83878a"
+                    android:textSize="19dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:orientation="vertical"
+
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="La leche líquida es el producto lácteo más consumido, elaborado y comercializado. La leche líquida abarca productos como la leche pasteurizada"
+                    android:textColor="#858788"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="S/. 120.00"
+                    android:textColor="#0089BA"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <!--FOOTER-->
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        >
+
+
+        <LinearLayout
+            android:layout_marginVertical="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1.3"
+                android:background="@drawable/bg_horizontal_left_border"
+                android:gravity="center"
+                android:textColor="#83878a"
+                android:text="CANTIDAD"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="0.7"
+                android:textAlignment="center"
+                android:background="@drawable/bg_horizontal_medium_border"
+                android:gravity="center"
+                android:textColor="#83878a"
+                android:text="0"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                />
+
+            <Button
+
+                android:id="@+id/btn_change_pwd"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:textColor="#ffffff"
+                android:background="@drawable/bg_horizontal_right_border"
+                android:layout_weight="2"
+                android:gravity="center"
+
+                android:textSize="16dp"
+                android:text="AGREGAR" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

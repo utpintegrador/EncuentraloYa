@@ -6,19 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".view.Implement.BuscarProductoActivity">
 
-    <!-- Body -->
-    <LinearLayout
+    <!-- SEARCH -->
+    <RelativeLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
 
-        <!-- Search -->
+          >
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingTop="30dp">
+            android:paddingTop="15dp"
+
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,19 +39,36 @@
                     android:tint="#0089BA"
                     app:srcCompat="@drawable/ic_buscar" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/search_product"
+                    android:layout_width="294dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center_vertical"
-                    android:gravity="center"
+                    android:background="@null"
+                    android:gravity="center|left"
+                    android:hint="Buscar"
+                    android:inputType="textFilter"
+                    android:imeOptions="actionSearch"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="Buscar"
-                    android:textAlignment="center"
-                    android:textColor="#797D7F" />
+                    android:textColor="#797D7F"
+                    />
+
             </LinearLayout>
 
         </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- CATEGORIAS -->
+    <RelativeLayout
+        android:id="@+id/body_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        >
+
 
         <!-- Items -->
         <LinearLayout
@@ -161,21 +182,40 @@
 
         </LinearLayout>
 
-        <!-- Ordenar -->
-        <LinearLayout
+
+    </RelativeLayout>
+
+    <!-- FILTROS -->
+    <RelativeLayout
+        android:id="@+id/body_two"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/body_one"
+        android:background="#E5E7E9"
+        >
+
+        <!-- ordernar -->
+        <RelativeLayout
+            android:id="@+id/mnu_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_gris">
+            android:layout_alignParentLeft="true"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content" android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:src="@drawable/ic_menu"></ImageButton>
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    app:srcCompat="@drawable/ic_ordenar_lista_2"
+                    android:tint="#0089BA"
+                    android:backgroundTint="#E5E7E9"
+                    android:visibility="gone"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -183,25 +223,79 @@
                     android:layout_gravity="center"
                     android:text="ORDENAR"
                     android:textColor="#0089BA"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    />
+
             </LinearLayout>
 
-            <RelativeLayout
+
+        </RelativeLayout>
+
+        <!-- filtrar -->
+        <RelativeLayout
+            android:id="@+id/mnu_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            >
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/ic_filtro"
+                android:tint="#0089BA"
+                android:backgroundTint="#E5E7E9"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <!-- ITEMS -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/body_two"
+        android:layout_above="@+id/footer"
+        >
+
+
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_products"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:overScrollMode="never"
 
-                <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"
-                    android:src="@drawable/ic_filter">
+                ></android.support.v7.widget.RecyclerView>
 
-                </ImageButton>
-            </RelativeLayout>
-        </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progress_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                />
 
-    </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
 
     <!-- FOOTER MENU-->
     <RelativeLayout
@@ -222,6 +316,7 @@
 
             <!--INICIO-->
             <Button
+                android:id="@+id/btn_inicio"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -237,6 +332,7 @@
 
             <!--BUSCAR-->
             <Button
+                android:id="@+id/btn_buscar"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -252,11 +348,12 @@
 
             <!--CARRITO-->
             <Button
+                android:id="@+id/btn_carrito"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
                 android:background="#0089BA"
-                android:drawableTop="@drawable/ic_carito"
+                android:drawableTop="@drawable/ic_shopping"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:drawableTint="#80DEEA"
@@ -267,6 +364,7 @@
 
             <!--PERFIL-->
             <Button
+                android:id="@+id/btn_perfil"
                 android:textAllCaps="false"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -284,7 +382,5 @@
 
 
     </RelativeLayout>
-
-
 
 </RelativeLayout>

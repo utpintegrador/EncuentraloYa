@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.encuentraloya.R;
 import com.example.encuentraloya.model.Implement.RegisterUsuarioInteractor;
@@ -18,7 +18,6 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
     RegisterUsuarioPresenter presenter;
 
     // Elements of layout
-    private EditText createUser;
     private EditText createPass;
     private EditText createName;
     private EditText createLastName;
@@ -26,6 +25,7 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
     private EditText createPassConfirm;
     private Button btnCreate;
     private ProgressBar progressBar;
+    private TextView linkLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +38,37 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
         createEmail = (EditText) this.findViewById(R.id.et_create_email);
         createPass = (EditText) this.findViewById(R.id.et_create_password);
         createPassConfirm = (EditText) this.findViewById(R.id.et_create_password_confirm);
-
-        btnCreate = (Button) this.findViewById(R.id.btn_create_user);
-        btnCreate.setOnClickListener(this); // Registra usuario
-
         progressBar = (ProgressBar) this.findViewById(R.id.progress_create_user);
+        btnCreate = (Button) this.findViewById(R.id.btn_create_user);
+        linkLogin = (TextView) this.findViewById(R.id.tv_create_login);
+
+        //set listener
+        btnCreate.setOnClickListener(this);
+        linkLogin.setOnClickListener(this);
+
+
         // Init
         presenter = new RegisterUsuarioPresenter(this, new RegisterUsuarioInteractor());
 
-        //presenter = new RegisterUsuarioPresenter(this);
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_create_user:
+                presenter.registerUser(createName.getText().toString(),
+                        createLastName.getText().toString(),
+                        createEmail.getText().toString(),
+                        createPass.getText().toString(),
+                        createPassConfirm.getText().toString());
+                break;
+            case R.id.tv_create_login:
+                startActivity(new Intent(RegisterUsuarioActivity.this,LoginActivity.class));
+                finish();
+                break;
+        }
+    }
 
 
     @Override
@@ -64,34 +82,37 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
     }
 
     @Override
-    public void setCorreoElectronicoError() {
-
+    public void setCorreoElectronicoError(String message) {
+        createEmail.setError(message);
     }
 
     @Override
-    public void setUsernameError() {
-
+    public void setNombreeError(String message) {
+        createName.setError(message);
     }
 
     @Override
-    public void setNombreeError() {
-
+    public void setApellidoError(String message) {
+        createLastName.setError(message);
     }
 
     @Override
-    public void setApellidoError() {
-
+    public void setContraseniaError(String message) {
+        createPass.setError(message);
     }
 
     @Override
-    public void setContraseniasError() {
-
+    public void setConfirmarContraseniaError(String message) {
+        createPassConfirm.setError(message);
     }
 
     @Override
     public void navigateToHome() {
-        Toast.makeText(this, "Usuario creado", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, LoginActivity.class));
+        Intent intent = new Intent(this, MensajeConfirmacionActivity.class);
+        intent.putExtra("operacion", "confirmacion_creacion_cuenta");
+        this.startActivity(intent);
+        //startActivity(new Intent(RegisterUsuarioActivity.this, MensajeConfirmacionActivity.class));
+        finish();
     }
 
     @Override
@@ -102,18 +123,5 @@ public class RegisterUsuarioActivity extends AppCompatActivity implements IRegis
     @Override
     public void setError(String ErrorMessage) {
 
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_create_user:
-                presenter.registerUser(createUser.getText().toString(),
-                        createEmail.getText().toString(),
-                        createPass.getText().toString(),
-                        createName.getText().toString(),
-                        createLastName.getText().toString());
-                break;
-        }
     }
 }
