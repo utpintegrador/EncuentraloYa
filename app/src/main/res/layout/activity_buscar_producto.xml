@@ -189,7 +189,7 @@
     <RelativeLayout
         android:id="@+id/body_two"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_below="@+id/body_one"
         android:background="#E5E7E9"
         >
@@ -214,7 +214,7 @@
                     app:srcCompat="@drawable/ic_ordenar_lista_2"
                     android:tint="#0089BA"
                     android:backgroundTint="#E5E7E9"
-
+                    android:visibility="gone"
                     />
 
                 <TextView
@@ -223,7 +223,9 @@
                     android:layout_gravity="center"
                     android:text="ORDENAR"
                     android:textColor="#0089BA"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    />
 
             </LinearLayout>
 
@@ -246,6 +248,7 @@
                 app:srcCompat="@drawable/ic_filtro"
                 android:tint="#0089BA"
                 android:backgroundTint="#E5E7E9"
+                android:visibility="gone"
                 />
 
         </RelativeLayout>

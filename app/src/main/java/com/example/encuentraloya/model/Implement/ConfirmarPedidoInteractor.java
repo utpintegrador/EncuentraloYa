@@ -28,8 +28,8 @@ public class ConfirmarPedidoInteractor {
         final PedidoSQLite dataLite = new PedidoSQLite(context);
 
         PedidoDto entity = new PedidoDto();
-        //entity.setIdNegocioVendedor(SharedPreferencesManager.getIntValue(Constantes.PREF_SELECTED_ID_NEGOCIO));
-        entity.setIdNegocioVendedor(29);
+        entity.setIdNegocioVendedor(SharedPreferencesManager.getIntValue(Constantes.PREF_SELECTED_ID_NEGOCIO));
+        //entity.setIdNegocioVendedor(29);
         entity.setIdNegocioComprador(SharedPreferencesManager.getIntValue(Constantes.PREF_IDNEGOCIO));
         entity.setDireccion(referencia);
         entity.setNumeroCelular(numeroCelular);
